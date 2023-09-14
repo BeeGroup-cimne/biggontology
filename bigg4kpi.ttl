@@ -1,0 +1,463 @@
+@prefix : <http://bigg-project.eu/ld/bigg4kpi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bigg4kpi: <http://bigg-project.eu/bigg4kpi#> .
+@base <http://bigg-project.eu/ld/bigg4kpi#> .
+
+<http://bigg-project.eu/ld/bigg4kpi#> rdf:type owl:Ontology ;
+                                       owl:versionIRI <http://bigg-project.eu/ld/bigg4kpi/v1.0.0#> ;
+                                       owl:imports <http://bigg-project.eu/ld/ontology#> ;
+                                       dcterms:contributor "Edgar Martínez-Sarmiento" ,
+                                                           "Eloi Gabaldon" ,
+                                                           "Guillaume Picinbono" ,
+                                                           "Jordi Carbonell" ,
+                                                           "Nicolas Bus" ,
+                                                           "Stoyan Danov" ;
+                                       dcterms:creator "Edgar Martínez-Sarmiento" ;
+                                       dcterms:description "This is the bigg ontology extension for energy kpi."@en ;
+                                       dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                       dcterms:modified "2022-06-07" ;
+                                       dcterms:title "The BIGG (Building information aggregation harmonization and analytics platform) for kpi ontology extension."@en ;
+                                       owl:versionInfo "v1.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://bigg-project.eu/bigg4kpi#assessesAggregatedKPI
+bigg4kpi:assessesAggregatedKPI rdf:type owl:ObjectProperty ;
+                               rdfs:domain bigg4kpi:AnalyticalGroup ;
+                               rdfs:range bigg4kpi:AggregatedKPIAssessment ;
+                               rdfs:label "assesses aggregated k p i" .
+
+
+###  http://bigg-project.eu/bigg4kpi#assessesSingleKPI
+bigg4kpi:assessesSingleKPI rdf:type owl:ObjectProperty ;
+                           rdfs:domain bigg4kpi:KPICalculationItem ;
+                           rdfs:range bigg4kpi:SingleKPIAssessment ;
+                           rdfs:label "assesses single k p i" .
+
+
+###  http://bigg-project.eu/bigg4kpi#groupsForAnalytics
+bigg4kpi:groupsForAnalytics rdf:type owl:ObjectProperty ;
+                            rdfs:domain bigg4kpi:KPICalculationItem ;
+                            rdfs:range bigg4kpi:AnalyticalGroup ;
+                            rdfs:label "groups for analytics" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasAggregatedKPIPoint
+bigg4kpi:hasAggregatedKPIPoint rdf:type owl:ObjectProperty ;
+                               rdfs:domain bigg4kpi:AggregatedKPIAssessment ;
+                               rdfs:range bigg4kpi:AggregatedKPIAssessmentPoint ;
+                               rdfs:label "has aggregated k p i point" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasAggregationFunction
+bigg4kpi:hasAggregationFunction rdf:type owl:ObjectProperty ;
+                                rdfs:domain bigg4kpi:AggregatedKPIAssessment ;
+                                rdfs:range bigg4kpi:AggregationFunction ;
+                                rdfs:label "has aggregation function" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasAnalyticalModel
+bigg4kpi:hasAnalyticalModel rdf:type owl:ObjectProperty ;
+                            rdfs:domain bigg4kpi:KPICalculationItem ;
+                            rdfs:range bigg4kpi:AnalyticalModel ;
+                            rdfs:label "has analytical model" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasKPIType
+bigg4kpi:hasKPIType rdf:type owl:ObjectProperty ;
+                    rdfs:domain saref4city:KeyPerformanceIndicator ;
+                    rdfs:range bigg4kpi:KPIType ;
+                    rdfs:label "has k p i type" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasKPIUnit
+bigg4kpi:hasKPIUnit rdf:type owl:ObjectProperty ;
+                    rdfs:domain bigg4kpi:KPIAssessment ;
+                    rdfs:range bigg4kpi:MeasurementUnit ;
+                    rdfs:label "has k p i unit" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasModelStorageInfrastructure
+bigg4kpi:hasModelStorageInfrastructure rdf:type owl:ObjectProperty ;
+                                       rdfs:domain bigg4kpi:AnalyticalModel ;
+                                       rdfs:range bigg4kpi:ModelStorageInfrastructure ;
+                                       rdfs:label "has model storage infrastructure" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasModelType
+bigg4kpi:hasModelType rdf:type owl:ObjectProperty ;
+                      rdfs:domain bigg4kpi:AnalyticalModel ;
+                      rdfs:range bigg4kpi:ModelType ;
+                      rdfs:label "has model type" .
+
+
+###  http://bigg-project.eu/bigg4kpi#hasSingleKPIPoint
+bigg4kpi:hasSingleKPIPoint rdf:type owl:ObjectProperty ;
+                           rdfs:domain bigg4kpi:SingleKPIAssessment ;
+                           rdfs:range bigg4kpi:SingleKPIAssessmentPoint ;
+                           rdfs:label "has single k p i point" .
+
+
+###  http://bigg-project.eu/bigg4kpi#isEstimatedByModel
+bigg4kpi:isEstimatedByModel rdf:type owl:ObjectProperty ;
+                            rdfs:domain bigg4kpi:KPIAssessment ;
+                            rdfs:range bigg4kpi:AnalyticalModel ;
+                            rdfs:label "is estimated by model" .
+
+
+###  https://saref.etsi.org/core/isMeasuredIn
+<https://saref.etsi.org/core/isMeasuredIn> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <https://saref.etsi.org/core/Measurement> ;
+                                           rdfs:range <https://saref.etsi.org/core/UnitOfMeasure> ;
+                                           rdfs:comment "A relationship identifying the unit of measure used for a certain entity."@en ;
+                                           rdfs:isDefinedBy <https://saref.etsi.org/core/> ;
+                                           rdfs:label "is measured in"@en .
+
+
+###  https://saref.etsi.org/saref4city/assesses
+<https://saref.etsi.org/saref4city/assesses> rdf:type owl:ObjectProperty ;
+                                             rdfs:comment "assesses"@en ;
+                                             rdfs:label "assesses"@en .
+
+
+###  https://saref.etsi.org/saref4city/hasCalculationPeriod
+<https://saref.etsi.org/saref4city/hasCalculationPeriod> rdf:type owl:ObjectProperty ;
+                                                         rdfs:comment "has calculation period"@en ;
+                                                         rdfs:label "has calculation period"@en .
+
+
+###  https://saref.etsi.org/saref4city/hasKPI
+<https://saref.etsi.org/saref4city/hasKPI> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <https://saref.etsi.org/saref4city/isKPIOf> ;
+                                           rdfs:comment "has key performance indicator"@en ;
+                                           rdfs:label "has key performance indicator"@en .
+
+
+###  https://saref.etsi.org/saref4city/isAssessedBy
+<https://saref.etsi.org/saref4city/isAssessedBy> rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/saref4city/isDerivedFrom
+<https://saref.etsi.org/saref4city/isDerivedFrom> rdf:type owl:ObjectProperty ;
+                                                  rdfs:comment "is derived from"@en ;
+                                                  rdfs:label "is derived from"@en .
+
+
+###  https://saref.etsi.org/saref4city/isKPIOf
+<https://saref.etsi.org/saref4city/isKPIOf> rdf:type owl:ObjectProperty ;
+                                            rdfs:comment "is key performance indicator of"@en ;
+                                            rdfs:label "is key performance indicator of"@en .
+
+
+###  https://saref.etsi.org/saref4city/quantifiesKPI
+<https://saref.etsi.org/saref4city/quantifiesKPI> rdf:type owl:ObjectProperty ;
+                                                  rdfs:comment "quantifies KPI"@en ;
+                                                  rdfs:label "quantifies KPI"@en .
+
+
+###  https://saref.etsi.org/saref4city/refersToFeature
+<https://saref.etsi.org/saref4city/refersToFeature> rdf:type owl:ObjectProperty ;
+                                                    rdfs:comment "Relation between a KPI assessment and the geographical feature it refers to"@en ;
+                                                    rdfs:label "refers to feature"@en .
+
+
+###  https://saref.etsi.org/saref4city/refersToTime
+<https://saref.etsi.org/saref4city/refersToTime> rdf:type owl:ObjectProperty ;
+                                                 rdfs:comment "refers to time"@en ;
+                                                 rdfs:label "refers to time"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://bigg-project.eu/bigg4kpi#modelBaselineYear
+bigg4kpi:modelBaselineYear rdf:type owl:DatatypeProperty ;
+                           rdfs:domain bigg4kpi:AnalyticalModel ;
+                           rdfs:range xsd:string ;
+                           rdfs:label "model baseline year" .
+
+
+###  http://bigg-project.eu/bigg4kpi#modelLocation
+bigg4kpi:modelLocation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain bigg4kpi:AnalyticalModel ;
+                       rdfs:range xsd:string ;
+                       rdfs:label "model location" .
+
+
+###  http://bigg-project.eu/bigg4kpi#modelName
+bigg4kpi:modelName rdf:type owl:DatatypeProperty ;
+                   rdfs:domain bigg4kpi:AnalyticalModel ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "model name" .
+
+
+###  http://bigg-project.eu/bigg4kpi#modelTrainedDate
+bigg4kpi:modelTrainedDate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain bigg4kpi:AnalyticalModel ;
+                          rdfs:range xsd:date ;
+                          rdfs:label "model trained date" .
+
+
+###  https://saref.etsi.org/core/hasValue
+<https://saref.etsi.org/core/hasValue> rdf:type owl:DatatypeProperty .
+
+
+###  https://saref.etsi.org/saref4city/hasCreationDate
+<https://saref.etsi.org/saref4city/hasCreationDate> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:range xsd:dateTime ;
+                                                    rdfs:comment "has creation date"@en ;
+                                                    rdfs:label "has creation date"@en .
+
+
+###  https://saref.etsi.org/saref4city/hasExpirationDate
+<https://saref.etsi.org/saref4city/hasExpirationDate> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:range xsd:dateTime ;
+                                                      rdfs:comment "has expiration date"@en ;
+                                                      rdfs:label "has expiration date"@en .
+
+
+###  https://saref.etsi.org/saref4city/hasLastUpdateDate
+<https://saref.etsi.org/saref4city/hasLastUpdateDate> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:range xsd:dateTime ;
+                                                      rdfs:comment "has last update date"@en ;
+                                                      rdfs:label "has last update date"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://bigg-project.eu/bigg4kpi#AggregatedKPIAssessment
+bigg4kpi:AggregatedKPIAssessment rdf:type owl:Class ;
+                                 rdfs:subClassOf bigg4kpi:KPIAssessment ;
+                                 rdfs:label "Aggregated K P I Assessment" .
+
+
+###  http://bigg-project.eu/bigg4kpi#AggregatedKPIAssessmentPoint
+bigg4kpi:AggregatedKPIAssessmentPoint rdf:type owl:Class ;
+                                      rdfs:subClassOf bigg4kpi:TimeSeriesPoint ;
+                                      rdfs:label "Aggregated K P I Assessment Point" .
+
+
+###  http://bigg-project.eu/bigg4kpi#AggregationFunction
+bigg4kpi:AggregationFunction rdf:type owl:Class ;
+                             rdfs:label "Aggregation Function" .
+
+
+###  http://bigg-project.eu/bigg4kpi#AnalyticalGroup
+bigg4kpi:AnalyticalGroup rdf:type owl:Class ;
+                         rdfs:label "Analytical Group" .
+
+
+###  http://bigg-project.eu/bigg4kpi#AnalyticalModel
+bigg4kpi:AnalyticalModel rdf:type owl:Class ;
+                         rdfs:label "Analytical Model" .
+
+
+###  http://bigg-project.eu/bigg4kpi#Building
+bigg4kpi:Building rdf:type owl:Class ;
+                  rdfs:subClassOf bigg4kpi:KPICalculationItem ;
+                  rdfs:label "Building" .
+
+
+###  http://bigg-project.eu/bigg4kpi#BuildingKeyPerformanceIndicator
+bigg4kpi:BuildingKeyPerformanceIndicator rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://saref.etsi.org/saref4city/KeyPerformanceIndicator> ;
+                                         rdfs:label "Building Key Performance Indicator" .
+
+
+###  http://bigg-project.eu/bigg4kpi#EEMKeyPerformanceIndicator
+bigg4kpi:EEMKeyPerformanceIndicator rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://saref.etsi.org/saref4city/KeyPerformanceIndicator> ;
+                                    rdfs:label "E E M Key Performance Indicator" .
+
+
+###  http://bigg-project.eu/bigg4kpi#EnergyEfficiencyMeasure
+bigg4kpi:EnergyEfficiencyMeasure rdf:type owl:Class ;
+                                 rdfs:subClassOf bigg4kpi:KPICalculationItem ;
+                                 rdfs:label "Energy Efficiency Measure" .
+
+
+###  http://bigg-project.eu/bigg4kpi#KPIAssessment
+bigg4kpi:KPIAssessment rdf:type owl:Class ;
+                       rdfs:subClassOf bigg4kpi:TimeSeriesList ;
+                       rdfs:label "K P I Assessment" .
+
+
+###  http://bigg-project.eu/bigg4kpi#KPICalculationItem
+bigg4kpi:KPICalculationItem rdf:type owl:Class ;
+                            rdfs:label "K P I Calculation Item" .
+
+
+###  http://bigg-project.eu/bigg4kpi#KPIType
+bigg4kpi:KPIType rdf:type owl:Class ;
+                 rdfs:label "K P I Type" .
+
+
+###  http://bigg-project.eu/bigg4kpi#MeasurementUnit
+bigg4kpi:MeasurementUnit rdf:type owl:Class ;
+                         rdfs:label "Measurement Unit" .
+
+
+###  http://bigg-project.eu/bigg4kpi#ModelStorageInfrastructure
+bigg4kpi:ModelStorageInfrastructure rdf:type owl:Class ;
+                                    rdfs:label "Model Storage Infrastructure" .
+
+
+###  http://bigg-project.eu/bigg4kpi#ModelType
+bigg4kpi:ModelType rdf:type owl:Class ;
+                   rdfs:label "Model Type" .
+
+
+###  http://bigg-project.eu/bigg4kpi#SingleKPIAssessment
+bigg4kpi:SingleKPIAssessment rdf:type owl:Class ;
+                             rdfs:subClassOf bigg4kpi:KPIAssessment ;
+                             rdfs:label "Single K P I Assessment" .
+
+
+###  http://bigg-project.eu/bigg4kpi#SingleKPIAssessmentPoint
+bigg4kpi:SingleKPIAssessmentPoint rdf:type owl:Class ;
+                                  rdfs:subClassOf bigg4kpi:TimeSeriesPoint ;
+                                  rdfs:label "Single K P I Assessment Point" .
+
+
+###  http://bigg-project.eu/bigg4kpi#TimeSeriesList
+bigg4kpi:TimeSeriesList rdf:type owl:Class ;
+                        rdfs:label "Time Series List" .
+
+
+###  http://bigg-project.eu/bigg4kpi#TimeSeriesPoint
+bigg4kpi:TimeSeriesPoint rdf:type owl:Class ;
+                         rdfs:label "Time Series Point" .
+
+
+###  http://www.w3.org/2006/time#TemporalDuration
+<http://www.w3.org/2006/time#TemporalDuration> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/FeatureOfInterest
+<https://saref.etsi.org/core/FeatureOfInterest> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/Measurement
+<https://saref.etsi.org/core/Measurement> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/UnitOfMeasure
+<https://saref.etsi.org/core/UnitOfMeasure> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/saref4city/Agent
+<https://saref.etsi.org/saref4city/Agent> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/saref4city/KeyPerformanceIndicator
+<https://saref.etsi.org/saref4city/KeyPerformanceIndicator> rdf:type owl:Class ;
+                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <https://saref.etsi.org/saref4city/hasCalculationPeriod> ;
+                                                                              owl:allValuesFrom <http://www.w3.org/2006/time#TemporalDuration>
+                                                                            ] ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <https://saref.etsi.org/saref4city/isKPIOf> ;
+                                                                              owl:allValuesFrom <https://saref.etsi.org/core/FeatureOfInterest>
+                                                                            ] ;
+                                                            rdfs:comment "A Key Performance Indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages. (Definition taken from FIWARE)"@en ;
+                                                            rdfs:label "Key Performance Indicator"@en ;
+                                                            rdfs:seeAlso <http://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html> .
+
+
+###  https://saref.etsi.org/saref4city/KeyPerformanceIndicatorAssessment
+<https://saref.etsi.org/saref4city/KeyPerformanceIndicatorAssessment> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/core/isMeasuredIn> ;
+                                                                                        owl:allValuesFrom <https://saref.etsi.org/core/UnitOfMeasure>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/assesses> ;
+                                                                                        owl:allValuesFrom <https://saref.etsi.org/core/FeatureOfInterest>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/isAssessedBy> ;
+                                                                                        owl:allValuesFrom <https://saref.etsi.org/saref4city/Agent>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/isDerivedFrom> ;
+                                                                                        owl:allValuesFrom <https://saref.etsi.org/core/Measurement>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/quantifiesKPI> ;
+                                                                                        owl:allValuesFrom <https://saref.etsi.org/saref4city/KeyPerformanceIndicator>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/refersToTime> ;
+                                                                                        owl:allValuesFrom <http://www.w3.org/2006/time#TemporalEntity>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/hasCreationDate> ;
+                                                                                        owl:allValuesFrom xsd:dateTime
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/hasExpirationDate> ;
+                                                                                        owl:allValuesFrom xsd:dateTime
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/saref4city/hasLastUpdateDate> ;
+                                                                                        owl:allValuesFrom xsd:dateTime
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <https://saref.etsi.org/core/hasValue> ;
+                                                                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                      ] ;
+                                                                      rdfs:comment "A Key Performance Indicator assessment represents the assessment of a KPI calculated by a given agent in a given time."@en ;
+                                                                      rdfs:label "Key performance indicator assessment"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

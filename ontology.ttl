@@ -1,0 +1,1468 @@
+@prefix : <http://bigg-project.eu/ld/ontology#> .
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bigg: <http://bigg-project.eu/ld/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix geosp: <http://www.opengis.net/ont/geosparql#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix s4agri: <https://saref.etsi.org/saref4agri/> .
+@prefix s4city: <https://saref.etsi.org/saref4city/> .
+@prefix s4syst: <https://saref.etsi.org/saref4syst/> .
+@prefix s4watr: <https://saref.etsi.org/saref4watr/> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://bigg-project.eu/ld/ontology#> .
+
+<http://bigg-project.eu/ld/ontology#> rdf:type owl:Ontology ;
+                                       owl:versionIRI <http://bigg-project.eu/ld/ontology/v2.0.4#> ;
+                                       dcterms:contributor "Edgar Martínez-Sarmiento" ,
+                                                           "Eloi Gabaldon" ,
+                                                           "Guillaume Picinbono" ,
+                                                           "Nicolas Bus" ,
+                                                           "Stoyan Danov" ,
+                                                           "Jose Manuel Broto";
+                                       dcterms:creator "Edgar Martínez-Sarmiento" ;
+                                       dcterms:description "This ontology extends existing standardised and widely-used ontologies for energy efficiency analytics."@en ;
+                                       dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                       dcterms:modified "2023-06-20"^^xsd:date ;
+                                       dcterms:title "The BIGG (Building information aggregation harmonization and analytics platform) ontology."@en ;
+                                       owl:versionInfo "v2.0.4" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+dcterms:abstract rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dcterms:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#historyNote
+skos:historyNote rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#hadPrimarySource
+prov:hadPrimarySource rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#gmlLiteral
+geosp:gmlLiteral rdf:type rdfs:Datatype ;
+                 rdfs:isDefinedBy geosp: ,
+                                  <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/gml-literal> ,
+                                  <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/gml-literal> ;
+                 rdfs:seeAlso <https://portal.ogc.org/files/?artifact_id=20509> ;
+                 skos:definition "A GML serialization of a Geometry object."@en ;
+                 skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4> ;
+                 skos:prefLabel "GML Literal"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#wktLiteral
+geosp:wktLiteral rdf:type rdfs:Datatype ;
+                 rdfs:isDefinedBy geosp: ,
+                                  <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/wkt-literal> ,
+                                  <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/wkt-literal> ;
+                 rdfs:seeAlso <https://portal.ogc.org/files/?artifact_id=25355> ;
+                 skos:definition "A Well-known Text serialization of a Geometry object."@en ;
+                 skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.2.2> ;
+                 skos:prefLabel "Well-known Text Literal"@en .
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://bigg-project.eu/ld/ontology#manages
+bigg:manages rdf:type owl:ObjectProperty ;
+             rdfs:comment "Relation between an agent and a patrimony they manage."@en ;
+             rdfs:label "manages"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#hasArea
+geosp:hasArea rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf geosp:hasSize ;
+              rdfs:domain geosp:SpatialObject ;
+              rdfs:isDefinedBy geosp: ,
+                               <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties> ;
+              skos:definition "The area of a Spatial Object."@en ;
+              skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4> ,
+                           <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2> ;
+              skos:prefLabel "has area"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geosp:hasGeometry rdf:type owl:ObjectProperty ;
+                  rdfs:domain geosp:Feature ;
+                  rdfs:range geosp:Geometry ;
+                  rdfs:comment "A spatial representation for a given feature."@en ;
+                  rdfs:isDefinedBy geosp: ;
+                  rdfs:label "has geometry"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#hasSize
+geosp:hasSize rdf:type owl:ObjectProperty ;
+              rdfs:domain geosp:SpatialObject ;
+              rdfs:isDefinedBy geosp: ,
+                               <http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/spatial-object-properties> ,
+                               <http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/spatial-object-properties> ;
+              skos:definition "Subproperties of this property are used to indicate the size of a Spatial Object as a measurement or estimate of one or more dimensions of the Spatial Object's spatial presence."@en ;
+              skos:note "The recommended way to specify size is by using a subproperty of hasMetricSize. Subproperties of hasSize can be used if more complex expressions are necessary, for example if the unit of length can not be converted to meter, or if additional data are needed to describe the measurement or estimate."@en ;
+              skos:prefLabel "has size"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#sfContains
+geosp:sfContains rdf:type owl:ObjectProperty ;
+                 rdfs:domain geosp:SpatialObject ;
+                 rdfs:range geosp:SpatialObject ;
+                 rdfs:comment "Exists if the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*"@en ;
+                 rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,
+                                  <http://www.opengis.net/spec/geosparql/1.0> ;
+                 rdfs:label "contains"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#sfWithin
+geosp:sfWithin rdf:type owl:ObjectProperty ;
+               rdfs:domain geosp:SpatialObject ;
+               rdfs:range geosp:SpatialObject ;
+               rdfs:comment "Exists if the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***"@en ;
+               rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,
+                                <http://www.opengis.net/spec/geosparql/1.0> ;
+               rdfs:label "within"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#location
+geo:location rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf foaf:based_near ;
+             rdfs:comment """The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .
+ """@en ;
+             rdfs:label "location"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+geo:long rdf:type owl:ObjectProperty ;
+         rdfs:domain geo:SpatialThing .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty ;
+              rdfs:range skos:ConceptScheme ;
+              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+              rdfs:label "is in scheme"@en ;
+              skos:definition "Relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
+              skos:scopeNote "A concept may be a member of more than one concept scheme."@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#adr
+vcard:adr rdf:type owl:ObjectProperty ;
+          owl:equivalentProperty vcard:hasAddress ;
+          rdfs:comment "This object property has been mapped"@en ;
+          rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+          rdfs:label "address"@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasAddress
+vcard:hasAddress rdf:type owl:ObjectProperty ;
+                 rdfs:range vcard:Address ;
+                 rdfs:comment "To specify the components of the delivery address for the object"@en ;
+                 rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+                 rdfs:label "has address"@en .
+
+
+###  http://www.w3.org/ns/org#hasSubOrganization
+<http://www.w3.org/ns/org#hasSubOrganization> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://www.w3.org/ns/org#subOrganizationOf> .
+
+
+###  http://www.w3.org/ns/org#subOrganizationOf
+<http://www.w3.org/ns/org#subOrganizationOf> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://www.w3.org/ns/org#transitiveSubOrganizationOf> ;
+                                             rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                             rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                             rdfs:comment "Distribución jerárquica de organizaciones o unidades. Indica que una organización contiene a otra organización. Es la relación inversa de `org:hasSubOrganization`"@es ,
+                                                          "Rappresenta un contenimento gerarchico di una Organization o di una OrganizationalUnit. È l'inverso di `org:hasSubOrganization`. Ha nome come nome alternativo hasSubOrg."@it ,
+                                                          "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an Organization which contains this Organization. Inverse of `org:hasSubOrganization`."@en ,
+                                                          "Représente une relation hierarchique des Organisations ou des Unités Opérationnelles; indique une Organisation sujet qui contient cette Organisation. Inverse de `org:hasSubOrganization`."@fr ,
+                                                          "組織または組織単位の階層的包含を表わします。この組織を含む組織を示します。"@ja ;
+                                             rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
+                                             rdfs:label "es suborganización de"@es ,
+                                                        "sotto-Organization di"@it ,
+                                                        "sous-Organization de"@fr ,
+                                                        "subOrganization of"@en .
+
+
+###  http://www.w3.org/ns/org#transitiveSubOrganizationOf
+<http://www.w3.org/ns/org#transitiveSubOrganizationOf> rdf:type owl:ObjectProperty ,
+                                                                owl:TransitiveProperty ;
+                                                       rdfs:domain <http://www.w3.org/ns/org#Organization> ;
+                                                       rdfs:range <http://www.w3.org/ns/org#Organization> ;
+                                                       rdfs:comment "La version transitive de la propriété subOrganizationOf, renvoie une représentation de toutes les organisations qui contiennent celle-ci. Notez que ceci est une super-propriété de la relation transitive donc elle pourrait contenir des assertions additionnelles mais cet usage n'est pas recommandé."@fr ,
+                                                                    "La versión transitiva de la propiedad “subOrganizationOf”, es decir, la representación de todas las organizaciones en las que esta está contenida. Téngase en cuenta que desde el punto de vista técnico esta es una propiedad que contiene a todas las propiedades transitivas, de forma que podría contener afirmaciones adicionales, aunque su uso no está aconsejado."@es ,
+                                                                    "The transitive closure of subOrganizationOf, giving a representation of all organizations that contain this one. Note that technically this is a super property of the transitive closure so it could contain additional assertions but such usage is discouraged."@en ,
+                                                                    "subOrganizationOfの推移閉包で、これを含むすべての組織の表現を与える。技術的に、これが推移閉包のスーパープロパティーであるため、追加の言明を含むことができますが、そのような使用法はお勧めできないことに注意してください。"@ja ,
+                                                                    "È la chiusura transitiva di subOrganizationOf, quindi rappresenta tutte le organizzazioni che la contengono. Tecnicamente, essendo una chiusura transitiva, può contenere asserzioni che non la riguardano e quindi il suo uso è sconsigliato."@it ;
+                                                       rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
+                                                       rdfs:label "es suborganización de (transitiva)"@es ,
+                                                                  "es suborganización de manera transitiva de"@es ,
+                                                                  "sotto-Organization transitiva"@it ,
+                                                                  "sous-Organization transitive de"@fr ,
+                                                                  "transitive sub-organization"@en .
+
+
+###  http://www.w3.org/ns/ssn/deployedSystem
+ssn:deployedSystem rdf:type owl:ObjectProperty ;
+                   owl:inverseOf ssn:hasDeployment ;
+                   rdfs:comment "Relation between a Deployment and a deployed System."@en ,
+                                "Relation between a deployment and the system deployed."@en ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "deployed system"@en ;
+                   skos:definition "Relation between a Deployment and a deployed System."@en .
+
+
+###  http://www.w3.org/ns/ssn/forProperty
+ssn:forProperty rdf:type owl:ObjectProperty ;
+                rdfs:comment "A relation between some aspect of an entity and a Property."@en ;
+                rdfs:isDefinedBy ssn: ;
+                rdfs:label "for property"@en ;
+                skos:definition "A relation between some aspect of an entity and a Property."@en ;
+                skos:example "For example, from a Sensor to the properties it can observe; from an Actuator to the properties it can act on; from a Deployment to the properties it was installed to observe or act on; from a SystemCapability to the Property the capability is described for."@en .
+
+
+###  http://www.w3.org/ns/ssn/hasDeployment
+ssn:hasDeployment rdf:type owl:ObjectProperty ;
+                  rdfs:comment "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en ;
+                  rdfs:isDefinedBy ssn: ;
+                  rdfs:label "has deployment"@en ;
+                  skos:definition "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en .
+
+
+###  http://www.w3.org/ns/ssn/hasSubSystem
+ssn:hasSubSystem rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/based_near
+foaf:based_near rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/member
+foaf:member rdf:type owl:ObjectProperty ;
+            rdfs:label "member"@en .
+
+
+###  https://saref.etsi.org/core/accomplishes
+saref:accomplishes rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/core/consistsOf
+saref:consistsOf rdf:type owl:ObjectProperty ;
+                 rdfs:comment "A relationship indicating a composite entity that consists of other entities (e.g., a temperature/humidity sensor that consists of a temperature sensor and a humidity sensor)"@en ;
+                 rdfs:label "consists of"@en .
+
+
+###  https://saref.etsi.org/core/controlsProperty
+saref:controlsProperty rdf:type owl:ObjectProperty ;
+                       rdfs:domain saref:Device ;
+                       rdfs:range saref:Property ;
+                       rdfs:comment "A relationship specifying the property that can be controlled by a certain device"@en ;
+                       rdfs:isDefinedBy saref: ;
+                       rdfs:label "controls property"@en .
+
+
+###  https://saref.etsi.org/core/hasFunction
+saref:hasFunction rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/core/hasMeasurement
+saref:hasMeasurement rdf:type owl:ObjectProperty ;
+                     owl:inverseOf saref:isMeasurementOf ;
+                     rdfs:domain saref:FeatureOfInterest ;
+                     rdfs:range saref:Measurement ;
+                     rdfs:comment "A relationship between a feature of interest and a measurement about it"@en ,
+                                  "Relation betwwen a feature of interest and the measurments that are about it."@en ;
+                     rdfs:isDefinedBy saref: ;
+                     rdfs:label "has measurement"@en ,
+                                "is feature of interest of"@en .
+
+
+###  https://saref.etsi.org/core/hasProfile
+saref:hasProfile rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/core/hasProperty
+saref:hasProperty rdf:type owl:ObjectProperty ;
+                  owl:inverseOf saref:isPropertyOf ;
+                  rdfs:comment "Relation between a feature of interest and its properties."@en ;
+                  rdfs:isDefinedBy saref: ;
+                  rdfs:label "has property"@en .
+
+
+###  https://saref.etsi.org/core/hasState
+saref:hasState rdf:type owl:ObjectProperty ;
+               rdfs:domain saref:Device ;
+               rdfs:range saref:State ;
+               rdfs:comment "A relationship identifying the type of state of a device"@en ;
+               rdfs:label "has state"@en .
+
+
+###  https://saref.etsi.org/core/isControlledByDevice
+saref:isControlledByDevice rdf:type owl:ObjectProperty ;
+                           rdfs:domain saref:Property ;
+                           rdfs:range saref:Device ;
+                           rdfs:comment "A relationship specifying the devices that can control a certain property"@en ;
+                           rdfs:isDefinedBy saref: ;
+                           rdfs:label "is controlled by device"@en .
+
+
+###  https://saref.etsi.org/core/isMeasuredByDevice
+saref:isMeasuredByDevice rdf:type owl:ObjectProperty ;
+                         rdfs:isDefinedBy saref: ;
+                         rdfs:label "is measured by device"@en .
+
+
+###  https://saref.etsi.org/core/isMeasuredIn
+saref:isMeasuredIn rdf:type owl:ObjectProperty ;
+                   rdfs:isDefinedBy saref: ;
+                   rdfs:label "is measured in"@en .
+
+
+###  https://saref.etsi.org/core/isMeasurementOf
+saref:isMeasurementOf rdf:type owl:ObjectProperty ;
+                      rdfs:domain saref:Measurement ;
+                      rdfs:range saref:FeatureOfInterest ;
+                      rdfs:comment "A relationship between a measurement and the feature of interest whose quality was measured"@en ,
+                                   "Relation between a measurement and the feature of interest being measured."@en ;
+                      rdfs:isDefinedBy saref: ;
+                      rdfs:label "has feature of interest"@en ,
+                                 "isMeasurementOf"@en .
+
+
+###  https://saref.etsi.org/core/isPropertyOf
+saref:isPropertyOf rdf:type owl:ObjectProperty ;
+                   rdfs:comment "Relation between a property and a feature of interest in which such property appears."@en ;
+                   rdfs:isDefinedBy saref: ;
+                   rdfs:label "is property of"@en .
+
+
+###  https://saref.etsi.org/core/isUsedFor
+saref:isUsedFor rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/core/makesMeasurement
+saref:makesMeasurement rdf:type owl:ObjectProperty ;
+                       owl:inverseOf saref:measurementMadeBy ;
+                       rdfs:isDefinedBy saref: ;
+                       rdfs:label "makes measurement"@en .
+
+
+###  https://saref.etsi.org/core/measurementMadeBy
+saref:measurementMadeBy rdf:type owl:ObjectProperty ;
+                        rdfs:comment "Relation between a measurement and the device that made it."@en ;
+                        rdfs:isDefinedBy saref: ;
+                        rdfs:label "measurement made by"@en .
+
+
+###  https://saref.etsi.org/core/measuresProperty
+saref:measuresProperty rdf:type owl:ObjectProperty ;
+                       rdfs:isDefinedBy saref: ;
+                       rdfs:label "measures property"@en .
+
+
+###  https://saref.etsi.org/core/offers
+saref:offers rdf:type owl:ObjectProperty .
+
+
+###  https://saref.etsi.org/core/relatesToMeasurement
+saref:relatesToMeasurement rdf:type owl:ObjectProperty ;
+                           rdfs:isDefinedBy saref: ;
+                           rdfs:label "relates to measurement"@en .
+
+
+###  https://saref.etsi.org/core/relatesToProperty
+saref:relatesToProperty rdf:type owl:ObjectProperty ;
+                        rdfs:isDefinedBy saref: ;
+                        rdfs:label "relates to property"@en .
+
+
+###  https://saref.etsi.org/saref4agri/hasDeploymentPeriod
+s4agri:hasDeploymentPeriod rdf:type owl:ObjectProperty ;
+                           rdfs:comment "Relation to indicate the temporal duration or period of a deployment."@en ,
+                                        "has deployment period"@en ;
+                           rdfs:label "has deployment period"@en .
+
+
+###  https://saref.etsi.org/saref4agri/isDeployedAtSpace
+s4agri:isDeployedAtSpace rdf:type owl:ObjectProperty ;
+                         rdfs:comment "Relation to indicate the geographical componet of a deployment."@en ,
+                                      "is deployed at space"@en ;
+                         rdfs:label "is deployed at space"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/contains
+<https://saref.etsi.org/saref4bldg/contains> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <https://saref.etsi.org/saref4bldg/isContainedIn> ;
+                                             rdf:type owl:TransitiveProperty ;
+                                             rdfs:comment "A relation between a physical space and the objects located in such space."@en ;
+                                             rdfs:label "contains"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/hasSpace
+<https://saref.etsi.org/saref4bldg/hasSpace> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <https://saref.etsi.org/saref4bldg/isSpaceOf> ;
+                                             rdf:type owl:TransitiveProperty ;
+                                             rdfs:comment "Relation between a building or a building space and the spaces it can be divided into."@en ;
+                                             rdfs:label "has space"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/isContainedIn
+<https://saref.etsi.org/saref4bldg/isContainedIn> rdf:type owl:ObjectProperty ,
+                                                           owl:TransitiveProperty ;
+                                                  rdfs:comment "A relation between an object and the physical space in which it is located."@en ;
+                                                  rdfs:label "is contained in"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/isSpaceOf
+<https://saref.etsi.org/saref4bldg/isSpaceOf> rdf:type owl:ObjectProperty ,
+                                                       owl:TransitiveProperty ;
+                                              rdfs:comment "Relation between a building space and the building or building space it belongs to."@en ;
+                                              rdfs:label "isSpaceOf"@en .
+
+
+###  https://saref.etsi.org/saref4syst/connectedTo
+s4syst:connectedTo rdf:type owl:ObjectProperty ,
+                            owl:SymmetricProperty ;
+                   rdfs:domain s4syst:System ;
+                   rdfs:range s4syst:System ;
+                   rdfs:comment "Links a system to a system it is connected to. Connected systems interact in some way. The exact meaning of \"interact\" is defined by sub properties of s4syst:connectedTo. Property s4syst:connectedTo is symmetric. This property can be qualified using class s4syst:Connection, which connects the two systems. If there is a connection between several systems, then one may infer these systems are pairwise connected."@en ;
+                   rdfs:label "connected to"@en .
+
+
+###  https://saref.etsi.org/saref4syst/connectionPointOf
+s4syst:connectionPointOf rdf:type owl:ObjectProperty ;
+                         owl:inverseOf s4syst:connectsAt ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain s4syst:ConnectionPoint ;
+                         rdfs:range s4syst:System ;
+                         rdfs:comment "Links a connection point to the one and only one system it belongs to."@en ;
+                         rdfs:label "connection point to"@en .
+
+
+###  https://saref.etsi.org/saref4syst/connectsAt
+s4syst:connectsAt rdf:type owl:ObjectProperty ,
+                           owl:InverseFunctionalProperty ;
+                  rdfs:domain s4syst:System ;
+                  rdfs:range s4syst:ConnectionPoint ;
+                  rdfs:comment "Links a system to one of the connection points at which it connects."@en ;
+                  rdfs:label "connects at"@en .
+
+
+###  https://saref.etsi.org/saref4syst/hasSubSystem
+s4syst:hasSubSystem rdf:type owl:ObjectProperty ;
+                    owl:inverseOf s4syst:subSystemOf ;
+                    rdf:type owl:TransitiveProperty ;
+                    rdfs:domain s4syst:System ;
+                    rdfs:range s4syst:System ;
+                    rdfs:comment "Links a system to one of its sub systems."@en ;
+                    rdfs:label "has sub system"@en .
+
+
+###  https://saref.etsi.org/saref4syst/subSystemOf
+s4syst:subSystemOf rdf:type owl:ObjectProperty ,
+                            owl:TransitiveProperty ;
+                   rdfs:domain s4syst:System ;
+                   rdfs:range s4syst:System ;
+                   rdfs:comment "Links a system to its super system. Properties of subsystems somehow contribute to the properties of the super system. The exact meaning of \"contribute is defined by sub properties of s4syst:subSystemOf. Property s4syst:subSystemOf is transitive."@en ;
+                   rdfs:label "sub system of"@en .
+
+
+###  https://saref.etsi.org/saref4watr/hasPhenomenonTime
+s4watr:hasPhenomenonTime rdf:type owl:ObjectProperty ;
+                         rdfs:domain saref:Measurement ;
+                         rdfs:range time:TemporalEntity ;
+                         rdfs:comment "The time for which the value of a measurement applies to the feature of interest."@en ;
+                         rdfs:label "has phenomenon time"@en .
+
+
+###  https://www.geonames.org/ontology#featureClass
+gn:featureClass rdf:type owl:ObjectProperty ;
+                owl:propertyChainAxiom ( gn:featureCode
+                                         skos:inScheme
+                                       ) ;
+                rdfs:comment "The main category of the feature, as defined in geonames taxonomy."@en ;
+                rdfs:label "feature class"@en .
+
+
+###  https://www.geonames.org/ontology#featureCode
+gn:featureCode rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://bigg-project.eu/ld/ontology#energySupplyPointNumber
+bigg:energySupplyPointNumber rdf:type owl:DatatypeProperty ;
+                             rdfs:domain bigg:EnergySupplyPoint ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Energy supply point number."@en ;
+                             rdfs:label "energy supply point number"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#nationalCadastralReference
+bigg:nationalCadastralReference rdf:type owl:DatatypeProperty ;
+                                rdfs:domain geosp:Feature ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "Thematic identifier at national level, generally the full national code of the basic property unit. Must ensure the link to the national cadastral register or equivalent. (https://www.w3.org/2015/03/inspire/cp)"@en ;
+                                rdfs:label "national cadastral reference"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#asGML
+geosp:asGML rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf geosp:hasSerialization ;
+            rdfs:domain geosp:Geometry ;
+            rdfs:range geosp:gmlLiteral ;
+            rdfs:isDefinedBy geosp: ,
+                             <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-gml-literal> ,
+                             <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-gml-literal> ;
+            skos:definition "The GML serialization of a Geometry"@en ;
+            skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4> ;
+            skos:prefLabel "as GML"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+geosp:asWKT rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf geosp:hasSerialization ;
+            rdfs:domain geosp:Geometry ;
+            rdfs:range geosp:wktLiteral ;
+            rdfs:isDefinedBy geosp: ,
+                             <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-wkt-literal> ,
+                             <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-wkt-literal> ;
+            skos:definition "The WKT serialization of a Geometry"@en ;
+            skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.1> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.1> ,
+                         <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.2.4> ;
+            skos:prefLabel "as WKT"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#hasSerialization
+geosp:hasSerialization rdf:type owl:DatatypeProperty ;
+                       rdfs:domain geosp:Geometry ;
+                       rdfs:range rdfs:Literal ;
+                       rdfs:isDefinedBy geosp: ,
+                                        <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-properties> ,
+                                        <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties> ;
+                       skos:definition "Connects a Geometry object with its text-based serialization."@en ;
+                       skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3> ;
+                       skos:prefLabel "has serialization"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
+geo:alt rdf:type owl:DatatypeProperty ;
+        rdfs:domain geo:SpatialThing ;
+        rdfs:comment "The WGS84 altitude of a SpatialThing (decimal meters above the local reference ellipsoid)."@en ;
+        rdfs:label "altitude"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+geo:lat rdf:type owl:DatatypeProperty ;
+        rdfs:domain geo:SpatialThing ;
+        rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)."@en ;
+        rdfs:label "latitude"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+geo:long rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#notation
+skos:notation rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/vcard/ns#country-name
+vcard:country-name rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/vcard/ns#locality
+vcard:locality rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/vcard/ns#postal-code
+vcard:postal-code rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The postal code associated with the address of the object"@en ;
+                  rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+                  rdfs:label "postal code"@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#region
+vcard:region rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/vcard/ns#street-address
+vcard:street-address rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "The street address associated with the address of the object"@en ;
+                     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+                     rdfs:label "street address"@en .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:DatatypeProperty .
+
+
+###  https://saref.etsi.org/core/hasManufacturer
+saref:hasManufacturer rdf:type owl:DatatypeProperty .
+
+
+###  https://saref.etsi.org/core/hasModel
+saref:hasModel rdf:type owl:DatatypeProperty .
+
+
+###  https://saref.etsi.org/core/hasTimestamp
+saref:hasTimestamp rdf:type owl:DatatypeProperty ;
+                   rdfs:isDefinedBy saref: ;
+                   rdfs:label "has timestamp"@en .
+
+
+###  https://saref.etsi.org/core/hasValue
+saref:hasValue rdf:type owl:DatatypeProperty ;
+               rdfs:isDefinedBy saref: ;
+               rdfs:label "has value"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://bigg-project.eu/ld/ontology#CadastralParcel
+bigg:CadastralParcel rdf:type owl:Class ;
+                     rdfs:subClassOf s4city:CityObject ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty geosp:sfContains ;
+                                       owl:someValuesFrom <https://saref.etsi.org/saref4bldg/Building>
+                                     ] ;
+                     rdfs:comment "Areas defined by cadastral registers or equivalent. (https://www.w3.org/2015/03/inspire/cp)"@en ;
+                     rdfs:label "Cadastral parcel"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#EnergyAsset
+bigg:EnergyAsset rdf:type owl:Class ;
+                 rdfs:subClassOf geosp:Feature ,
+                                 saref:FeatureOfInterest ,
+                                 s4syst:System ;
+                 rdfs:comment "An energy asset is a physical entity used in the process of transforming, transporting, storing and distributing energy."@en ;
+                 rdfs:label "Energy Asset"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#EnergyDevice
+bigg:EnergyDevice rdf:type owl:Class ;
+                  rdfs:subClassOf bigg:EnergyAsset ,
+                                  saref:Device ;
+                  rdfs:comment "An energy device is a device that is also an energy asset."@en ;
+                  rdfs:label "Energy device"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#EnergyMeter
+bigg:EnergyMeter rdf:type owl:Class ;
+                 rdfs:subClassOf bigg:EnergyDevice ,
+                                 saref:Meter ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty saref:measuresProperty ;
+                                   owl:someValuesFrom saref:Energy
+                                 ] ;
+                 rdfs:comment "An energy meter is an instrument intended to measure continuously, memorize, and display the energy consumption."@en ;
+                 rdfs:label "Energy meter"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#EnergySupplyPoint
+bigg:EnergySupplyPoint rdf:type owl:Class ;
+                       rdfs:subClassOf s4syst:ConnectionPoint ;
+                       rdfs:comment "Energy supply point."@en ;
+                       rdfs:label "Energy supply point"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#Patrimony
+bigg:Patrimony rdf:type owl:Class ;
+               rdfs:subClassOf s4city:CityObject ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty geosp:sfContains ;
+                                 owl:someValuesFrom bigg:CadastralParcel
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty geosp:sfContains ;
+                                 owl:someValuesFrom <https://saref.etsi.org/saref4bldg/Building>
+                               ] ;
+               rdfs:comment "A collection of real state entities used for the scope of energy accounting which can contain buildings and parcels."@en ;
+               rdfs:label "Patrimony"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#SurfaceArea
+bigg:SurfaceArea rdf:type owl:Class ;
+                 rdfs:subClassOf saref:Property ;
+                 rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value measured in an surface area unit (such as square meters)."@en ;
+                 rdfs:label "Surface area"@en .
+
+
+###  http://bigg-project.eu/ld/ontology#SurfaceAreaUnit
+bigg:SurfaceAreaUnit rdf:type owl:Class ;
+                     rdfs:subClassOf saref:UnitOfMeasure ;
+                     rdfs:comment "The unit of measure for surface area"@en ;
+                     rdfs:label "Surface area unit"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geosp:Feature rdf:type owl:Class ;
+              rdfs:subClassOf geosp:SpatialObject ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty geosp:hasGeometry ;
+                                owl:allValuesFrom geosp:Geometry
+                              ] ;
+              owl:disjointWith geosp:Geometry ;
+              rdfs:comment "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types."@en ;
+              rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,
+                               <http://www.opengis.net/ont/gml> ;
+              rdfs:label "Feature"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geosp:Geometry rdf:type owl:Class ;
+               rdfs:subClassOf geosp:SpatialObject ;
+               rdfs:comment "The class represents the top-level geometry type. This class is equivalent to the UML class GM_Object defined in ISO 19107, and it is superclass of all geometry types."@en ;
+               rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ,
+                                geosp: ,
+                                <http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-class> ,
+                                <http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-class> ;
+               rdfs:label "Geometry"@en ;
+               skos:definition "A coherent set of direct positions in Euclidian space. A direct position holds the coordinates for a position within a Coordinate Reference System (CRS)."@en ;
+               skos:example <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.1> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3> ,
+                            <http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4> ;
+               skos:note "Geometry can be used as a representation of the shape, extent or location of a Feature, or can exist as a self-contained entity."@en ;
+               skos:prefLabel "Geometry"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#SpatialObject
+geosp:SpatialObject rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty geosp:hasGeometry ;
+                                      owl:allValuesFrom geosp:Geometry
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty geosp:sfContains ;
+                                      owl:allValuesFrom geosp:SpatialObject
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty geosp:sfWithin ;
+                                      owl:allValuesFrom geosp:SpatialObject
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty geo:location ;
+                                      owl:allValuesFrom geo:Point
+                                    ] ;
+                    rdfs:comment "The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry."@en ;
+                    rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ;
+                    rdfs:label "SpatialObject"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
+geo:Point rdf:type owl:Class ;
+          rdfs:subClassOf geosp:Geometry ;
+          rdfs:comment """ 
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  """ ,
+                       "A point, typically described using a coordinate system relative to Earth, such as WGS84."@en ;
+          rdfs:isDefinedBy geo: ;
+          rdfs:label "Point"@en .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+geo:SpatialThing rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Collection
+skos:Collection rdf:type owl:Class ;
+                owl:disjointWith skos:Concept ,
+                                 skos:ConceptScheme .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             owl:disjointWith skos:ConceptScheme ;
+             rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+             rdfs:label "Concept"@en ;
+             skos:definition "An idea or notion; a unit of thought."@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class ;
+                   rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                   rdfs:label "Concept Scheme"@en ;
+                   skos:definition "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
+                   skos:example "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies."@en ;
+                   skos:scopeNote "A concept scheme may be defined to include concepts from different sources."@en .
+
+
+###  http://www.w3.org/2006/time#Instant
+time:Instant rdf:type owl:Class ;
+             rdfs:subClassOf time:TemporalEntity ;
+             rdfs:comment "A temporal entity with zero extent or duration"@en ;
+             rdfs:isDefinedBy time: ;
+             rdfs:label "Instant"@en .
+
+
+###  http://www.w3.org/2006/time#Interval
+time:Interval rdf:type owl:Class ;
+              rdfs:subClassOf time:TemporalEntity ;
+              rdfs:comment "A temporal entity with an extent or duration"@en ;
+              rdfs:isDefinedBy time: ;
+              rdfs:label "Time interval"@en .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class ;
+                    rdfs:comment "A temporal interval or instant."@en ;
+                    rdfs:isDefinedBy time: ;
+                    rdfs:label "Temporal entity"@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#Address
+vcard:Address rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:country-name ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:country-name ;
+                                                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:locality ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:locality ;
+                                                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:postal-code ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:postal-code ;
+                                                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:region ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:region ;
+                                                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:street-address ;
+                                                                           owl:someValuesFrom xsd:string
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty vcard:street-address ;
+                                                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                )
+                                  ] ;
+              rdfs:comment "To specify the components of the delivery address for the  object"@en ;
+              rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+              rdfs:label "Address"@en .
+
+
+###  http://www.w3.org/ns/org#Organization
+<http://www.w3.org/ns/org#Organization> rdf:type owl:Class ;
+                                        rdfs:subClassOf foaf:Agent ;
+                                        rdfs:comment "Grupo de personas que se organiza en una comunidad u otro tipo de estructura social, comercial o política. Dicho grupo tiene un objetivo o motivo común para su existencia que va más allá del conjunto de personas que lo forman y que puede actuar como “agente”. A menudo las organizaciones se pueden agrupar en estructuras jerárquicas. Se recomienda el uso de etiquetas de SKOS para denominar a cada “organización”. En concreto, `skos:prefLabel` para la denominación principal o recomendada (aquella reconocida legalmente, siempre que sea posible), `skos:altLabel` para denominaciones alternativas (nombre comercial, sigla, denominación por la que se conoce a la organización coloquialmente) y `skos:notation` para referirse al código que identifique a la organización en una lista de códigos. Denominaciones alternativas: _colectivo_ _corporación_ _grupo_"@es ,
+                                                     "Rappresenta una collezione di persone organizzate all'interno di una communità o di una qualche struttura sociale, commerciale o politica. Il gruppo condivide un obiettivo o una ragione d'essere che va oltre gli stessi membri appartenenti al gruppo e  può agire come un Agent. Le organizzazioni si possono spesso suddividere in strutture gerarchiche. Si raccomanda di usare le label per l'Organization mediante le proprietà di SKOS. In particolare, `skos:prefLabel` per il nome principale (possibilmente un nome legalmente riconosciuto)”, `skos:altLabel` come nome alternativo (denominazione commerciale, denominazione colloquiale) e `skos:notation` per indicare un codice di una lista di codici."@it ,
+                                                     "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.  It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"@en ,
+                                                     "Représente un groupe de personnes organisées en communauté où tout autre forme de structure sociale, commerciale ou politique. Le groupe a un but commun ou une raison d'être qui va au-delà de la somme des personnes qui en font partie et peut agir en tant que \"Agent\". Les organisations sont souvent décomposables en structures hiérarchisées. Il est recommandé que des labels lexicaux SKOS soient utilisés pour nommer l'Organisation. En particulier `skos:prefLabel` pour le nom principal (en général le nom légal), `skos:altLabel` pour les noms alternatifs (marques, sigles, appellations familières) et `skos:notation` pour indiquer un code provenant d'une liste de code."@fr ,
+                                                     "コミュニティー、その他の社会、商業、政治的な構造に共に編入された人々の集合を表わします。グループには、そこに属する人々を超えた、存在に対するある共通の目的や理由があり、エージェント（代理）を務めることができます。組織は、多くの場合、階層構造に分割できます。"@ja ;
+                                        rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
+                                        rdfs:label "Organisation"@fr ,
+                                                   "Organization"@en ,
+                                                   "Organizzazione"@it ,
+                                                   "organización"@es .
+
+
+###  http://www.w3.org/ns/ssn/Deployment
+ssn:Deployment rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:deployedSystem ;
+                                 owl:allValuesFrom ssn:System
+                               ] ;
+               rdfs:comment "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en ;
+               rdfs:isDefinedBy ssn: ;
+               rdfs:label "Deployment"@en ;
+               skos:definition "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en ;
+               skos:example "For example, a temperature Sensor deployed on a wall, or a whole network of Sensors deployed for an Observation campaign."@en .
+
+
+###  http://www.w3.org/ns/ssn/System
+ssn:System rdf:type owl:Class ;
+           rdfs:subClassOf s4syst:System ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasDeployment ;
+                             owl:allValuesFrom ssn:Deployment
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasSubSystem ;
+                             owl:allValuesFrom ssn:System
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf ssn:hasSubSystem
+                                            ] ;
+                             owl:allValuesFrom ssn:System
+                           ] ;
+           rdfs:comment "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems. (Definition taken from http://www.w3.org/ns/ssn/System)"@en ,
+                        "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en ;
+           rdfs:isDefinedBy ssn: ;
+           rdfs:label "System"@en ;
+           skos:definition "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty bigg:manages ;
+                             owl:someValuesFrom bigg:Patrimony
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty foaf:member ;
+                             owl:someValuesFrom foaf:Agent
+                           ] ;
+           rdfs:label "Agent"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:subClassOf foaf:Agent ;
+            rdfs:label "Person"@en .
+
+
+###  https://saref.etsi.org/core/Commodity
+saref:Commodity rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/Device
+saref:Device rdf:type owl:Class ;
+             rdfs:subClassOf geosp:Feature ,
+                             ssn:System ,
+                             <https://saref.etsi.org/saref4bldg/PhysicalObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:consistsOf ;
+                               owl:allValuesFrom saref:Device
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:controlsProperty ;
+                               owl:allValuesFrom saref:Property
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasProfile ;
+                               owl:allValuesFrom saref:Profile
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasState ;
+                               owl:allValuesFrom saref:State
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:isUsedFor ;
+                               owl:allValuesFrom saref:Commodity
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:makesMeasurement ;
+                               owl:allValuesFrom saref:Measurement
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:measuresProperty ;
+                               owl:allValuesFrom saref:Property
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:offers ;
+                               owl:allValuesFrom saref:Service
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:accomplishes ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass saref:Task
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasFunction ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass saref:Function
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasManufacturer ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasModel ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended." ,
+                          "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs the start and stop function."@en ,
+                          "A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function."@en ;
+             rdfs:isDefinedBy saref: ;
+             rdfs:label "Device" ,
+                        "Device"@en .
+
+
+###  https://saref.etsi.org/core/Energy
+saref:Energy rdf:type owl:Class ;
+             rdfs:subClassOf saref:Property ;
+             rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value measured in an energy unit (such as Kilowatt_Hour or Watt_hour). Furter specializations of the saref:Energy class can be found in the SAREF4ENER extension, where classes such as EnergyMax, EnergyMin and EnergyExpected are defined. "@en ;
+             rdfs:label "Energy"@en .
+
+
+###  https://saref.etsi.org/core/EnergyUnit
+saref:EnergyUnit rdf:type owl:Class ;
+                 rdfs:subClassOf saref:UnitOfMeasure ;
+                 rdfs:comment "The unit of measure for energy"@en ;
+                 rdfs:label "Energy unit"@en .
+
+
+###  https://saref.etsi.org/core/FeatureOfInterest
+saref:FeatureOfInterest rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:hasMeasurement ;
+                                          owl:allValuesFrom saref:Measurement
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:hasProperty ;
+                                          owl:allValuesFrom saref:Property
+                                        ] ;
+                        rdfs:comment saref: ;
+                        rdfs:label "Feature of interest"@en .
+
+
+###  https://saref.etsi.org/core/Function
+saref:Function rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/Measurement
+saref:Measurement rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:isMeasuredIn ;
+                                    owl:allValuesFrom saref:UnitOfMeasure
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:isMeasurementOf ;
+                                    owl:allValuesFrom saref:FeatureOfInterest
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:relatesToProperty ;
+                                    owl:allValuesFrom saref:Property
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:isMeasuredIn ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass saref:UnitOfMeasure
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:relatesToProperty ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass saref:Property
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:hasTimestamp ;
+                                    owl:allValuesFrom xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:hasValue ;
+                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty saref:hasValue ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ;
+                  owl:disjointWith saref:Property ,
+                                   saref:UnitOfMeasure ;
+                  rdfs:comment "Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement."@en ;
+                  rdfs:isDefinedBy saref: ;
+                  rdfs:label "Measurement"@en .
+
+
+###  https://saref.etsi.org/core/Meter
+saref:Meter rdf:type owl:Class ;
+            rdfs:subClassOf saref:Sensor ;
+            rdfs:comment "A device built to accurately detect and display a quantity in a form readable by a human being. Further, a device of category saref:Meter that performs a saref:MeteringFunction."@en ;
+            rdfs:label "Meter"@en .
+
+
+###  https://saref.etsi.org/core/Profile
+saref:Profile rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/Property
+saref:Property rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty saref:isMeasuredByDevice ;
+                                 owl:allValuesFrom saref:Device
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty saref:isPropertyOf ;
+                                 owl:allValuesFrom saref:FeatureOfInterest
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty saref:relatesToMeasurement ;
+                                 owl:allValuesFrom saref:Measurement
+                               ] ;
+               owl:disjointWith saref:UnitOfMeasure ;
+               rdfs:comment "An aspect of an entity that can be observable by a sensor."@en ,
+                            "Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended."@en ;
+               rdfs:isDefinedBy saref: ;
+               rdfs:label "Property"@en .
+
+
+###  https://saref.etsi.org/core/Sensor
+saref:Sensor rdf:type owl:Class ;
+             rdfs:subClassOf saref:Device ;
+             rdfs:isDefinedBy saref: ;
+             rdfs:label "Sensor"@en .
+
+
+###  https://saref.etsi.org/core/Service
+saref:Service rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/State
+saref:State rdf:type owl:Class ;
+            rdfs:comment "The state in which a device can be found, e.g, ON/OFF/STANDBY, or ONLINE/OFFLINE. We propose here a list of states that are relevant for the purpose of SAREF, but this list can be extended."@en ;
+            rdfs:label "State"@en .
+
+
+###  https://saref.etsi.org/core/Task
+saref:Task rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/UnitOfMeasure
+saref:UnitOfMeasure rdf:type owl:Class ;
+                    rdfs:comment "The unit of measure is a standard for measurement of a quantity, such as a Property. For example,  Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of SAREF, but this list can be extended, also using some other ontologies rather than the Ontology of units of Measure (OM)."@en ,
+                                 "The unit of measure is a standard for measurement of a quantity, such as a Property. For example,  Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of the Smart Appliances ontology, but this list can be extended."@en ;
+                    rdfs:isDefinedBy <http://www.wurvoc.org/vocabularies/om-1.6/Unit_of_measure> ,
+                                     saref: ;
+                    rdfs:label "Unit of measure"@en .
+
+
+###  https://saref.etsi.org/saref4agri/Deployment
+s4agri:Deployment rdf:type owl:Class ;
+                  rdfs:subClassOf ssn:Deployment ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ssn:deployedSystem ;
+                                    owl:someValuesFrom ssn:System
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty s4agri:hasDeploymentPeriod ;
+                                    owl:someValuesFrom time:TemporalEntity
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty s4agri:isDeployedAtSpace ;
+                                    owl:someValuesFrom geosp:SpatialObject
+                                  ] ;
+                  rdfs:comment "Deployment"@en ,
+                               "The scenario, including temporal and spatial information, in which the systems and devices are installed."@en ;
+                  rdfs:label "Deployment"@en .
+
+
+###  https://saref.etsi.org/saref4agri/WeatherStation
+s4agri:WeatherStation rdf:type owl:Class ;
+                      rdfs:subClassOf ssn:System ,
+                                      saref:Sensor ;
+                      rdfs:comment "A sensor o system that measure weather conditions."@en ;
+                      rdfs:label "Weather station"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/Building
+<https://saref.etsi.org/saref4bldg/Building> rdf:type owl:Class ;
+                                             rdfs:subClassOf s4city:CityObject ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://saref.etsi.org/saref4bldg/hasSpace> ;
+                                                               owl:allValuesFrom <https://saref.etsi.org/saref4bldg/BuildingSpace>
+                                                             ] ;
+                                             rdfs:comment "A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space)."@en ;
+                                             rdfs:label "Building"@en ;
+                                             rdfs:seeAlso <https://w3id.org/ifc/IFC4_ADD1#IfcBuilding> ;
+                                             prov:hadPrimarySource <http://www.buildingsmart-tech.org/ifc/IFC4/Add1/html/schema/ifcproductextension/lexical/ifcbuilding.htm> .
+
+
+###  https://saref.etsi.org/saref4bldg/BuildingDevice
+<https://saref.etsi.org/saref4bldg/BuildingDevice> rdf:type owl:Class ;
+                                                   rdfs:subClassOf saref:Device ,
+                                                                   <https://saref.etsi.org/saref4bldg/BuildingObject> ;
+                                                   rdfs:comment "A tangible object designed to accomplish a particular task in a building."@en ;
+                                                   rdfs:label "Building device"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/BuildingObject
+<https://saref.etsi.org/saref4bldg/BuildingObject> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://saref.etsi.org/saref4bldg/PhysicalObject> ;
+                                                   rdfs:comment "An object in the building that can be controlled by devices, such as a door or a window that can be automatically opened or closed by an actuator.  (Definition taken from SAREF 1.0)"@en ;
+                                                   rdfs:label "Building object"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/BuildingSpace
+<https://saref.etsi.org/saref4bldg/BuildingSpace> rdf:type owl:Class ;
+                                                  rdfs:subClassOf s4city:CityObject ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <https://saref.etsi.org/saref4bldg/contains> ;
+                                                                    owl:allValuesFrom <https://saref.etsi.org/saref4bldg/PhysicalObject>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <https://saref.etsi.org/saref4bldg/hasSpace> ;
+                                                                    owl:allValuesFrom <https://saref.etsi.org/saref4bldg/BuildingSpace>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <https://saref.etsi.org/saref4bldg/isSpaceOf> ;
+                                                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( <https://saref.etsi.org/saref4bldg/Building>
+                                                                                                      <https://saref.etsi.org/saref4bldg/BuildingSpace>
+                                                                                                    )
+                                                                                      ]
+                                                                  ] ;
+                                                  rdfs:comment "An entity used to define the physical spaces of the building. A building space contains devices or building objects."@en ;
+                                                  rdfs:label "Building space"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/PhysicalObject
+<https://saref.etsi.org/saref4bldg/PhysicalObject> rdf:type owl:Class ;
+                                                   rdfs:subClassOf s4city:CityObject ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://saref.etsi.org/saref4bldg/contains> ;
+                                                                     owl:allValuesFrom <https://saref.etsi.org/saref4bldg/PhysicalObject>
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://saref.etsi.org/saref4bldg/isContainedIn> ;
+                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                         owl:unionOf ( <https://saref.etsi.org/saref4bldg/BuildingSpace>
+                                                                                                       <https://saref.etsi.org/saref4bldg/PhysicalObject>
+                                                                                                     )
+                                                                                       ]
+                                                                   ] ;
+                                                   rdfs:comment "Any Object that has a proper space region.  (Definition extracted from DUL ontology)"@en ;
+                                                   rdfs:label "Physical object"@en .
+
+
+###  https://saref.etsi.org/saref4city/AdministrativeArea
+s4city:AdministrativeArea rdf:type owl:Class ;
+                          rdfs:subClassOf geosp:Feature ,
+                                          saref:FeatureOfInterest ;
+                          rdfs:comment "An administrative division, unit, entity, area or region, also referred to as a subnational entity, constituent unit, or country subdivision, is a portion of a country or other region delineated for the purpose of administration. (https://en.wikipedia.org/wiki/Administrative_division)"@en ;
+                          rdfs:label "Administrative area"@en .
+
+
+###  https://saref.etsi.org/saref4city/CityObject
+s4city:CityObject rdf:type owl:Class ;
+                  rdfs:subClassOf geosp:Feature ,
+                                  saref:FeatureOfInterest ;
+                  rdfs:comment "Generic class for describing city objects."@en ;
+                  rdfs:label "City object"@en .
+
+
+###  https://saref.etsi.org/saref4syst/ConnectionPoint
+s4syst:ConnectionPoint rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty s4syst:connectionPointOf ;
+                                         owl:cardinality "1"^^xsd:nonNegativeInteger
+                                       ] ;
+                       owl:disjointWith s4syst:System ;
+                       rdfs:comment "The class of connection points of systems, at which they may be connected to other systems. This class qualifies properties s4syst:connectsSystem and s4syst:connectedThrough. A connection point belongs to exactly one system. Any system connected through a connection is connected at one of its connection points to the connection. The system of a connection point that is connected through a connection is itself connected through the connection."@en ;
+                       rdfs:label "Connection Point"@en .
+
+
+###  https://saref.etsi.org/saref4syst/System
+s4syst:System rdf:type owl:Class ;
+              rdfs:comment "The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem."@en ;
+              rdfs:label "System"@en .
+
+
+###  https://www.geonames.org/ontology#Class
+gn:Class rdf:type owl:Class ;
+         rdfs:subClassOf skos:ConceptScheme ;
+         rdfs:comment "A class of features."@en ;
+         rdfs:label "Class"@en .
+
+
+###  https://www.geonames.org/ontology#Code
+gn:Code rdf:type owl:Class ;
+        rdfs:subClassOf skos:Concept ;
+        rdfs:comment "A feature code."@en ;
+        rdfs:label "Code"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://bigg-project.eu/ld/ontology#GrossFloorArea
+bigg:GrossFloorArea rdf:type owl:NamedIndividual ,
+                             bigg:SurfaceArea .
+
+
+###  https://www.geonames.org/ontology#A.ADM1
+gn:A.ADM1 rdf:type owl:NamedIndividual .
+
+
+###  https://www.geonames.org/ontology#A.ADM2
+gn:A.ADM2 rdf:type owl:NamedIndividual .
+
+
+###  https://www.geonames.org/ontology#A.ADM3
+gn:A.ADM3 rdf:type owl:NamedIndividual .
+
+
+###  https://www.geonames.org/ontology#A.ADM4
+gn:A.ADM4 rdf:type owl:NamedIndividual .
+
+
+###  https://www.geonames.org/ontology#A.PCLI
+gn:A.PCLI rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+geo:long rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)."@en ;
+         rdfs:label "longitude"@en ,
+                    "longitude" ;
+         rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)." .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
