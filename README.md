@@ -5,8 +5,8 @@
 Ontology.
 
 ### bigg4kpi.ttl
-Contains the KPIs extension.
+Contains the ontology KPIs extension.
 
 ### BeeOntology.drawio
-In this file you will find the UML schema of the ontology.
+In this file you find the UML schema of the ontology.
 
