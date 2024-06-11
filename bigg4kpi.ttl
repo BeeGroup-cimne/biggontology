@@ -16,7 +16,8 @@
                                                            "Guillaume Picinbono" ,
                                                            "Jordi Carbonell" ,
                                                            "Nicolas Bus" ,
-                                                           "Stoyan Danov" ;
+                                                           "Stoyan Danov" ,
+                                                           "Jose Manuel Broto" ;
                                        dcterms:creator "Edgar Martínez-Sarmiento" ;
                                        dcterms:description "This is the bigg ontology extension for energy kpi."@en ;
                                        dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
