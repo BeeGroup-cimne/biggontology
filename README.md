@@ -15,7 +15,7 @@ This ontology is designed to represent the domain of buildings energy measuremen
 The repository is organized as follows:
 - `ontology/`
   - `ontology.ttl`: Main ontology file in Turtle format.
-- `extension/`
+- `extensions/`
   - `tariff.ttl`: Bigg ontology extension for Tariff in Turtle format.
   - `bigg4kpi.ttl`: Bigg ontology extension for energy kpi in Turtle format.
 - `docs/`
