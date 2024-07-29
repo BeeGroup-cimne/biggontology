@@ -18,13 +18,14 @@ The repository is organized as follows:
 - `extensions/`
   - `tariff.ttl`: Bigg ontology extension for Tariff in Turtle format.
   - `bigg4kpi.ttl`: Bigg ontology extension for energy kpi in Turtle format.
-- `docs/`
+- `schema/`
   - `BiggOntology.drawio`: UML schema of the ontology.
 
-## Installation
-### Prerequisites
-- [Protegé](https://protege.stanford.edu/): To view and edit the ontology.
+## Edit/View
+- Editing and viewing tools [Protegé](https://protege.stanford.edu/) & [Webvowl](https://service.tib.eu/webvowl/)
+- Editing and viewing library [Owlready](https://owlready2.readthedocs.io/en/latest/)
 
+## Instalation
 ### Installation Steps
 1. Clone this repository:
    ```bash
