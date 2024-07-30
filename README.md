@@ -2,7 +2,7 @@
 
 ![Ontology](resources/ontology.png)
 
-## Project Description
+
 
 This ontology is designed to represent the domain of buildings energy measurements. It provides a formal structure to
 describe buildings, consumptions, weather, KPIs, and their relationships.
