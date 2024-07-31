@@ -125,7 +125,7 @@ information, each having its own row key.
 
 ## Harmonization
 
-The harmonization of the data will be done with the following [mapping](sources/AMB_consumptions/mapping.yaml):
+The harmonization of the data will be done with the following [mapping](mapping.yaml):
 
 #### Classes=>
 
