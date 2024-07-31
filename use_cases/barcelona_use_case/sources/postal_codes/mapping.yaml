@@ -1,0 +1,34 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ld/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  cr_bcn: "https://cr_bcn#"
+
+mappings:
+  postalCodes:
+    sources:
+      - [ 'data.json~jsonpath', '$.postalCodes.geojson[*]' ]
+    s: cr_bcn:PostalCodes-$(properties.CODPOS)
+    po:
+      - [ a, gn:PostalCode ]
+      - [ bigg:postalCodeId, $(properties.CODPOS) ]
+      - [ geosp:hasGeometry, cr_bcn:Polygon-$(properties.CODPOS) ]
+
+  postalCodesGeojson:
+    sources:
+      - [ 'data.json~jsonpath', '$.postalCodes.geojson[*]' ]
+    s: cr_bcn:Polygon-$(properties.CODPOS)
+    po:
+      - [ a, geosp:Geometry ]
+      - [ geosp:asGeoJSON, $(geometry.coordinates) ]
