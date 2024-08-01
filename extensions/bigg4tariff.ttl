@@ -1,0 +1,141 @@
+ @prefix bigg: <http://bigg-project.eu/ontology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bigg: a owl:Ontology ;
+    dc:contributor "Eloi Gabaldon",
+        "Jose Manuel Broto",
+        "Guillaume Picinbono",
+        "Nicolas Bus",
+        "Stoyan Danov",
+        "Timson Yeung" ;
+    dc:creator "Edgar Martinez" ;
+    dc:description "Ontology code created by Chowlk",
+        "The BiGG Ontology is an ontology dedicadted to Building Digital Twin and focused on energy consumption, optimization and retrofit" ;
+    dc:title "BIGG Ontology" ;
+    owl:versionInfo "0.0.1" .
+
+bigg:hasC02MeasuredUnit a owl:ObjectProperty ;
+    rdfs:label "has c02 measured unit" ;
+    rdfs:domain bigg:CO2EmissionsFactorList ;
+    rdfs:range bigg:MeasurementUnit .
+
+bigg:hasC02RelatedMeasuredProperty a owl:ObjectProperty ;
+    rdfs:label "has c02 related measured property" ;
+    rdfs:domain bigg:CO2EmissionsFactorList ;
+    rdfs:range bigg:MeasuredProperty .
+
+bigg:hasC02RelatedMeasuredUnit a owl:ObjectProperty ;
+    rdfs:label "has c02 related measured unit" ;
+    rdfs:domain bigg:CO2EmissionsFactorList ;
+    rdfs:range bigg:MeasurementUnit .
+
+bigg:hasCO2EmissionsFactor a owl:ObjectProperty ;
+    rdfs:label "has c o2 emissions factor" ;
+    rdfs:domain bigg:UtilityPointOfDelivery ;
+    rdfs:range bigg:CO2EmissionsFactor .
+
+bigg:hasCO2EmissionsFactorList a owl:ObjectProperty ;
+    rdfs:label "has c o2 emissions factor list" ;
+    rdfs:domain bigg:CO2EmissionsFactor ;
+    rdfs:range bigg:CO2EmissionsFactorList .
+
+bigg:hasCO2EmissionsFactorValue a owl:ObjectProperty ;
+    rdfs:label "has c o2 emissions factor value" ;
+    rdfs:domain bigg:CO2EmissionsFactorList ;
+    rdfs:range bigg:CO2EmissionsPoint .
+
+bigg:hasContractedTariff a owl:ObjectProperty ;
+    rdfs:label "has contracted tariff" ;
+    rdfs:domain bigg:UtilityPointOfDelivery ;
+    rdfs:range bigg:ContractedTariff .
+
+bigg:hasTariff a owl:ObjectProperty ;
+    rdfs:label "has tariff" ;
+    rdfs:domain bigg:ContractedTariff ;
+    rdfs:range bigg:Tariff .
+
+bigg:hasTariffComponentList a owl:ObjectProperty ;
+    rdfs:label "has tariff component list" ;
+    rdfs:domain bigg:Tariff ;
+    rdfs:range bigg:TariffComponentList .
+
+bigg:hasTariffComponentPoint a owl:ObjectProperty ;
+    rdfs:label "has tariff component point" ;
+    rdfs:domain bigg:TariffComponentList ;
+    rdfs:range bigg:TariffComponentPoint .
+
+bigg:hasTariffCurrencyUnit a owl:ObjectProperty ;
+    rdfs:label "has tariff currency unit" ;
+    rdfs:domain bigg:TariffComponentList ;
+    rdfs:range bigg:TariffCurrency .
+
+bigg:hasTariffMeasuredProperty a owl:ObjectProperty ;
+    rdfs:label "has tariff measured property" ;
+    rdfs:domain bigg:TariffComponentList ;
+    rdfs:range bigg:MeasuredProperty .
+
+bigg:hasTariffMeasuredUnit a owl:ObjectProperty ;
+    rdfs:label "has tariff measured unit" ;
+    rdfs:domain bigg:TariffComponentList ;
+    rdfs:range bigg:MeasurementUnit .
+
+bigg:tariffCompany a owl:DatatypeProperty ;
+    rdfs:label "tariff company" ;
+    rdfs:domain bigg:Tariff ;
+    rdfs:range xsd:string .
+
+bigg:tariffName a owl:DatatypeProperty ;
+    rdfs:label "tariff name" ;
+    rdfs:domain bigg:Tariff ;
+    rdfs:range xsd:string .
+
+bigg:CO2EmissionsPoint a owl:Class ;
+    rdfs:label "C O2 Emissions Point" ;
+    rdfs:subClassOf bigg:TimeSeriesPoint .
+
+bigg:Contract a owl:Class ;
+    rdfs:label "Contract" .
+
+bigg:TariffComponentPoint a owl:Class ;
+    rdfs:label "Tariff Component Point" ;
+    rdfs:subClassOf bigg:TimeSeriesPoint .
+
+bigg:TariffCurrency a owl:Class ;
+    rdfs:label "Tariff Currency" .
+
+bigg:CO2EmissionsFactor a owl:Class ;
+    rdfs:label "C O2 Emissions Factor" .
+
+bigg:ContractedTariff a owl:Class ;
+    rdfs:label "Contracted Tariff" ;
+    rdfs:subClassOf bigg:Contract .
+
+bigg:MeasuredProperty a owl:Class ;
+    rdfs:label "Measured Property" .
+
+bigg:TimeSeriesList a owl:Class ;
+    rdfs:label "Time Series List" .
+
+bigg:TimeSeriesPoint a owl:Class ;
+    rdfs:label "Time Series Point" .
+
+bigg:UtilityPointOfDelivery a owl:Class ;
+    rdfs:label "Utility Point Of Delivery" .
+
+bigg:MeasurementUnit a owl:Class ;
+    rdfs:label "Measurement Unit" .
+
+bigg:Tariff a owl:Class ;
+    rdfs:label "Tariff" .
+
+bigg:CO2EmissionsFactorList a owl:Class ;
+    rdfs:label "C O2 Emissions Factor List" ;
+    rdfs:subClassOf bigg:TimeSeriesList .
+
+bigg:TariffComponentList a owl:Class ;
+    rdfs:label "Tariff Component List" ;
+    rdfs:subClassOf bigg:TimeSeriesList .
+
