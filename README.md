@@ -57,12 +57,15 @@ The BIGG ontology is divided into 5 main components:
 - **KPI**: Establish a set of standardized metrics for evaluating the performance of buildings and urban areas. These
   KPIs allow for benchmarking, performance assessment, and identifying areas for improvement, supporting strategies for
   enhanced efficiency and sustainability.
+
   ![bigg4kpi](resources/bigg4kpi.png)
+
 - **Tariff**: Define and analyse the tariffs and pricing structures related to utilities and services in buildings and
   urban areas. This includes understanding cost implications for energy, water, waste management, and other services,
   enabling better financial planning, cost management, and policy development. By analysing tariffs, stakeholders can
   optimise resource usage, manage budgets effectively, and make informed decisions on service contracts and procurement
   strategies.
+
   ![bigg4kpi](resources/bigg4tariff.png)
 
 ### Purpose and Objectives
