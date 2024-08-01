@@ -8,6 +8,13 @@ includes a framework for defining measurements and key performance indicators (K
 benchmarking of building and urban area performance. This repository documents the ongoing development of the ontology
 and provides essential resources for its application.
 
+![Ontology](resources/ontology.png)
+
+The BIGG ontology uses the Terse RDF Triple Language (Turtle) to represent information. It is built using the Web
+Ontology Language (OWL), which is based on the Resource Description Framework (RDF) XML standard set by the World Wide
+Web Consortium (W3C). This method guarantees a strong and standardized framework for representing and exchanging
+semantic data within the ontology.
+
 ## Key Components
 
 The BIGG ontology is divided into 5 main components:
@@ -15,10 +22,14 @@ The BIGG ontology is divided into 5 main components:
 - **Systems**: Describe and analyze the various systems, sensors, devices, and weather stations within buildings and
   urban areas, including their functions, interconnections, and performance. This ensures efficient operation,
   maintenance, and integration of systems, leading to enhanced overall building performance and reliability.
+  
+  ![systems](resources/systems.png)
 
 - **Geospatial**: Capture and analyze spatial characteristics and geographic information of buildings and urban areas.
   This supports urban planning, optimal land use, site selection, and environmental impact assessments, thereby
   facilitating informed decision-making and efficient spatial management.
+
+  ![geospatial](resources/geospatial.png)
 
 - **Measurements**: Catalogue and standardize the various devices and sensors used in buildings and urban areas for data
   collection and control. This includes meters, thermostats, smart appliances, and sensors measuring temperature,
@@ -26,16 +37,20 @@ The BIGG ontology is divided into 5 main components:
   data capture across different environments, facilitating reliable monitoring, data collection, analysis, and informed
   decision-making.
 
+  ![measurements](resources/measurement.png)
+
 - **Agents**: Identify and categorize the various stakeholders and entities involved in the lifecycle of buildings and
   urban areas. This promotes effective coordination, compliance with regulations, and collaboration among stakeholders,
   leading to more efficient and cohesive management of urban environments.
+
+  ![agents](resources/temporal.png)
 
 - **Temporal**: Address the timing of events, lifecycle phases of systems and components, and historical data related to
   buildings and urban areas. This enables time-based analysis and planning, prediction of future needs, scheduling of
   maintenance activities, and evaluation of long-term trends, ensuring proactive management and sustainability of urban
   assets.
 
-![Ontology](resources/ontology.png)
+  ![temporal](resources/temporal.png)
 
 ## Extensions
 
@@ -79,7 +94,7 @@ The repository is organized as follows:
 - `ontology/`
     - `ontology.ttl`: Main ontology file in Turtle format.
 - `extensions/`
-    - `tariff.ttl`: Bigg ontology extension for Tariff in Turtle format.
+    - `bigg4tariff.ttl`: Bigg ontology extension for Tariff in Turtle format.
     - `bigg4kpi.ttl`: Bigg ontology extension for energy kpi in Turtle format.
 - `schema/`
     - `BiggOntology.drawio`: UML schema of the ontology.
