@@ -6,6 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix bigg4kpi: <http://bigg-project.eu/bigg4kpi#> .
+@prefix s4city: <https://saref.etsi.org/saref4city/> .
 @base <http://bigg-project.eu/ld/bigg4kpi#> .
 
 <http://bigg-project.eu/ld/bigg4kpi#> rdf:type owl:Ontology ;
@@ -109,7 +110,7 @@ bigg4kpi:hasAnalyticalModel rdf:type owl:ObjectProperty ;
 
 ###  http://bigg-project.eu/bigg4kpi#hasKPIType
 bigg4kpi:hasKPIType rdf:type owl:ObjectProperty ;
-                    rdfs:domain saref4city:KeyPerformanceIndicator ;
+                    rdfs:domain s4city:KeyPerformanceIndicator ;
                     rdfs:range bigg4kpi:KPIType ;
                     rdfs:label "has k p i type" .
 
