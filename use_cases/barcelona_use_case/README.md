@@ -1,5 +1,7 @@
 # Barcelona Use Case
 
+![barcelona](../../resources/barcelona.png)
+
 ## Data sources index
 
 The following links will provide information of each data source import tool:
