@@ -1,8 +1,41 @@
 # Bigg Ontology
 
+The BIGG Ontology is an open-source initiative that establishes a standardised schema
+for describing, characterising, and analysing buildings and urban areas. This ontology supports urban planning, building
+management, and sustainable development by creating a shared vocabulary for researchers and practitioners. This common
+language facilitates the sharing and integrating information within the urban development domain. The ontology also
+includes a framework for defining measurements and key performance indicators (KPIs) to enable precise evaluation and
+benchmarking of building and urban area performance. This repository documents the ongoing development of the ontology
+and provides essential resources for its application.
+
+## Key Components
+
+The BIGG ontology is divided into 5 main components:
+
+- **Systems**: Describe and analyze the various systems, sensors, devices, and weather stations within buildings and
+  urban areas, including their functions, interconnections, and performance. This ensures efficient operation,
+  maintenance, and integration of systems, leading to enhanced overall building performance and reliability.
+
+- **Geospatial**: Capture and analyze spatial characteristics and geographic information of buildings and urban areas.
+  This supports urban planning, optimal land use, site selection, and environmental impact assessments, thereby
+  facilitating informed decision-making and efficient spatial management.
+
+- **Measurements**: Catalogue and standardize the various devices and sensors used in buildings and urban areas for data
+  collection and control. This includes meters, thermostats, smart appliances, and sensors measuring temperature,
+  humidity, occupancy, and energy consumption. Standardizing these devices and sensors ensures accurate and consistent
+  data capture across different environments, facilitating reliable monitoring, data collection, analysis, and informed
+  decision-making.
+
+- **Agents**: Identify and categorize the various stakeholders and entities involved in the lifecycle of buildings and
+  urban areas. This promotes effective coordination, compliance with regulations, and collaboration among stakeholders,
+  leading to more efficient and cohesive management of urban environments.
+
+- **Temporal**: Address the timing of events, lifecycle phases of systems and components, and historical data related to
+  buildings and urban areas. This enables time-based analysis and planning, prediction of future needs, scheduling of
+  maintenance activities, and evaluation of long-term trends, ensuring proactive management and sustainability of urban
+  assets.
+
 ![Ontology](resources/ontology.png)
-
-
 
 This ontology is designed to represent the domain of buildings energy measurements. It provides a formal structure to
 describe buildings, consumptions, weather, KPIs, and their relationships.
@@ -54,7 +87,8 @@ The repository is organized as follows:
 
 ### Barcelona use case
 
-A comprehensive initiative is underway in [Barcelona](use_cases/barcelona_use_case/README.md) to characterise the city's Vulnerability Index. This index is
+A comprehensive initiative is underway in [Barcelona](use_cases/barcelona_use_case/README.md) to characterise the city's
+Vulnerability Index. This index is
 predicated on factors such as adaptation, exposure, and other critical elements determining the city's susceptibility to
 various risks. Relevant datasets have been identified and harmonised according to a specific ontology to facilitate
 this.
@@ -71,7 +105,8 @@ vulnerability, thereby enhancing Barcelona’s ability to manage and mitigate ri
 
 ### Montreal use case
 
-In [Montreal](use_cases/montreal_use_case/README.md), a solution is being developed to predict consumption at the Regional Territorial Area (RTA) level by
+In [Montreal](use_cases/montreal_use_case/README.md), a solution is being developed to predict consumption at the
+Regional Territorial Area (RTA) level by
 creating a datalake that integrates tabular time series (TS) data with cadastral vector data. This datalake harmonizes
 consumption data and building characteristics according to the defined ontology, ensuring effective data linkage.
 
