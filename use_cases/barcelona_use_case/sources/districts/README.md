@@ -19,7 +19,7 @@ python3 -m gather -so districts -f <file> -n <namespace> -u <user_importing> -tz
 The information is stored in a graph database called Neo4j, where all data is linked and harmonized according to the
 BIGG ontology.
 
-#### Municipalities
+#### Districts
 
 ````json
 {
