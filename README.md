@@ -22,7 +22,7 @@ The BIGG ontology is divided into 5 main components:
 - **Systems**: Describe and analyze the various systems, sensors, devices, and weather stations within buildings and
   urban areas, including their functions, interconnections, and performance. This ensures efficient operation,
   maintenance, and integration of systems, leading to enhanced overall building performance and reliability.
-  
+
   ![systems](resources/systems.png)
 
 - **Geospatial**: Capture and analyze spatial characteristics and geographic information of buildings and urban areas.
@@ -68,7 +68,23 @@ The BIGG ontology is divided into 5 main components:
 
   ![bigg4kpi](resources/bigg4tariff.png)
 
-### Purpose and Objectives
+## Dictionaries & Taxonomies
+
+##### External Sources
+
+- **all-geonames-rdf-clean-ES.rdf** -> [GeoNames](https://www.geonames.org/): Data on municipalities, provinces, regions, and countries.
+- **qudt.ttl** -> [QUDT](https://qudt.org/): Units of measure.
+
+##### Custom generation of taxonomies for the project
+
+- **AreaType.ttl** -> Defines categories of buildings and administrative areas, such as GrossFloorArea,
+  BuiltUpLandArea, and GrossFloorAreaAboveGround.
+- **MainUses.ttl** -> Outlines primary uses of areas or properties, including residential, retail, industrial,
+  agricultural, and public services uses.
+- **MeasuredProperty.ttl** -> Specifies properties measured in geographical areas, such as area, consumptions,
+  elevation, and temperature.
+
+## Purpose and Objectives
 
 - **Purpose**: Facilitate the organization and tracking of projects through a structured and formalized representation.
 - **Objectives**: Establish a formal framework for describing and categorizing different aspects of buildings and urban
@@ -77,7 +93,7 @@ The BIGG ontology is divided into 5 main components:
   Ultimately, this will simplify the analysis process and support the design of policies and strategies for sustainable
   urban development.
 
-### Motivations
+## Motivations
 
 - **Complexity of Urban Environments**: The intricate nature of urban areas necessitates a comprehensive framework to
   manage
@@ -85,8 +101,7 @@ The BIGG ontology is divided into 5 main components:
 - **Data Integration**: The need to integrate disparate data sources and systems to provide a cohesive understanding of
   urban environments.
 - **Sustainability Goals**: The growing emphasis on sustainable development requires precise tools for planning and
-  managing
-  urban growth.
+  managing urban growth.
 - **Technological Advancements**: Leveraging new technologies to improve data collection, analysis, and visualization.
 - **Policy Development**: The demand for robust data-driven insights to inform urban policy and decision-making.
 
@@ -116,8 +131,8 @@ The repository is organized as follows:
 ### Barcelona use case
 
 A comprehensive initiative is underway in [Barcelona](use_cases/barcelona_use_case/README.md) to characterise the city's
-Vulnerability Index. This index is
-predicated on factors such as adaptation, exposure, and other critical elements determining the city's susceptibility to
+Vulnerability Index. This index is predicated on factors such as adaptation, exposure, and other critical elements
+determining the city's susceptibility to
 various risks. Relevant datasets have been identified and harmonised according to a specific ontology to facilitate
 this.
 
