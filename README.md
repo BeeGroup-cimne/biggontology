@@ -43,7 +43,7 @@ The BIGG ontology is divided into 5 main components:
   urban areas. This promotes effective coordination, compliance with regulations, and collaboration among stakeholders,
   leading to more efficient and cohesive management of urban environments.
 
-  ![agents](resources/temporal.png)
+  ![agents](resources/agent.png)
 
 - **Temporal**: Address the timing of events, lifecycle phases of systems and components, and historical data related to
   buildings and urban areas. This enables time-based analysis and planning, prediction of future needs, scheduling of
