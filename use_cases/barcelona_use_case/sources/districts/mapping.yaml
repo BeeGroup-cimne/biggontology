@@ -1,0 +1,44 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ld/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  cr_bcn: "https://cr_bcn#"
+
+mappings:
+  district:
+    sources:
+      - [ 'data.json~jsonpath', '$.districts.geojson[*]' ]
+    s: cr_bcn:District-$(properties.DISTRICTE)
+    po:
+      - [a, gn:parentADM4]
+      - [a, s4city:District]
+      - [ bigg:districtId, $(properties.DISTRICTE)]
+      - [ geosp:hasGeometry, cr_bcn:Polygon-$(properties.DISTRICTE)]
+
+  municipality:
+    sources:
+      - [ 'data.json~jsonpath', '$.districts.geojson[*]' ]
+    s: cr_bcn:Municipality-$(properties.MUNICIPI)
+    po:
+      - [ a, gn:parentADM3 ]
+      - [ bigg:hasDivision, cr_bcn:District-$(properties.DISTRICTE) ]
+
+  districtGeojson:
+    sources:
+      - [ 'data.json~jsonpath', '$.districts.geojson[*]' ]
+    s: cr_bcn:Polygon-$(properties.DISTRICTE)
+    po:
+      - [ a, geosp:Geometry ]
+      - [ geosp:asGeoJSON, $(geometry.coordinates) ]
+
