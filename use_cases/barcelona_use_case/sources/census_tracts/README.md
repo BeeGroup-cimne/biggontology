@@ -63,7 +63,7 @@ The harmonization of the data will be done with the following [mapping](mapping.
 | gn:parentADM4, s4city:District | namespace#District-&lt;districtId&gt;       |                        |
 | geosp:Geometry                 | namespace#Polygon-&lt;censusTractId&gt;     |                        |
 
-#### Relations=>
+#### Object Properties=>
 
 | Origin class                   | Destination class | Relation          |
 |--------------------------------|-------------------|-------------------|

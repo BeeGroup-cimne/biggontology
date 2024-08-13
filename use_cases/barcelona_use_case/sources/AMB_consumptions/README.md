@@ -136,7 +136,7 @@ The harmonization of the data will be done with the following [mapping](mapping.
 | saref:UnitOfMeasure | namespace#unit-kWh/m2                         |                        |
 | saref:Property      | namespace#Property&lt;measurementTypology&gt; |                        |
 
-#### Relations=>
+#### Object Properties=>
 
 | Origin class      | Destination class   | Relation               |
 |-------------------|---------------------|------------------------|
