@@ -43,7 +43,7 @@ The harmonization of the data will be done with the following [mapping](mapping.
 | bigg:EnergySupplyPoint | namespace#EnergySupplyPoint-&lt;postalCode&gt;-&lt;economicSector&gt;-&lt;tariff&gt; |                        |
 | saref:Device           | namespace#Device-&lt;postalCode&gt;-&lt;economicSector&gt;-&lt;tariff&gt;            |                        |
 
-#### Relations=>
+#### Object Properties=>
 
 | Origin class           | Destination class                     | Relation                 |
 |------------------------|---------------------------------------|--------------------------|

@@ -65,7 +65,7 @@ The harmonization of the data will be done with the following [mapping](mapping.
 | gn:parentADM3    | namespace#Municipality-&lt;CODIMUNI&gt; |                        |
 | geosp:Geometry   | namespace#Polygon-&lt;CODIMUNI&gt;      |                        |
 
-#### Relations=>
+#### Object Properties=>
 
 | Origin class  | Destination class | Relation          |
 |---------------|-------------------|-------------------|

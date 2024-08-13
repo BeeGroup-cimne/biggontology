@@ -44,7 +44,7 @@ The harmonization of the data will be done with the following [mapping](mapping.
 | gn:parentADM4, s4city:District | namespace#District-&lt;codi_districte&gt;         |                        |
 | geosp:Geometry                 | namespace#NeighbourhoodPolygon-&lt;codi_barri&gt; |                        |
 
-#### Relations=>
+#### Object Properties=>
 
 | Origin class                   | Destination class | Relation              |
 |--------------------------------|-------------------|-----------------------|
