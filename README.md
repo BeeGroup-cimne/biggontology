@@ -72,7 +72,8 @@ The BIGG ontology is divided into 5 main components:
 
 ##### External Sources
 
-- **all-geonames-rdf-clean-ES.rdf** -> [GeoNames](https://www.geonames.org/): Data on municipalities, provinces, regions, and countries.
+- **all-geonames-rdf-clean-ES.rdf** -> [GeoNames](https://www.geonames.org/): Data on municipalities, provinces,
+  regions, and countries.
 - **qudt.ttl** -> [QUDT](https://qudt.org/): Units of measure.
 
 ##### Custom generation of taxonomies for the project
@@ -95,15 +96,18 @@ The BIGG ontology is divided into 5 main components:
 
 ## Motivations
 
-- **Complexity of Urban Environments**: The intricate nature of urban areas necessitates a comprehensive framework to
-  manage
-  and analyze various elements effectively.
-- **Data Integration**: The need to integrate disparate data sources and systems to provide a cohesive understanding of
-  urban environments.
-- **Sustainability Goals**: The growing emphasis on sustainable development requires precise tools for planning and
-  managing urban growth.
-- **Technological Advancements**: Leveraging new technologies to improve data collection, analysis, and visualization.
-- **Policy Development**: The demand for robust data-driven insights to inform urban policy and decision-making.
+- **Complexity of Urban Environments**: The intricate nature of urban areas requires a comprehensive framework to manage
+  and analyze various elements effectively in order to address their complexity and interconnectedness.
+- **Data Integration**: Integrating disparate data sources and systems is essential to achieve a cohesive understanding
+  of urban environments
+  and enhance decision-making and management of urban dynamics.
+- **Sustainability Goals**: The increasing focus on sustainable development necessitates precise tools and methods for
+  planning and managing urban
+  growth that align with sustainability objectives.
+- **Technological Advancements**: Leveraging new technologies presents opportunities to improve data collection,
+  analysis, and visualization which are vital for understanding urban environments and making informed decisions.
+- **Policy Development**: Robust data-driven insights are in high demand to guide the development of policies and
+  strategies that address the challenges of urban growth and ensure sustainable development for the future.
 
 ## Repository Structure
 
