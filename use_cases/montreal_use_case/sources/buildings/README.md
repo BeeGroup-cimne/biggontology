@@ -134,24 +134,24 @@ The harmonization of the data will be done with the following [mapping](mapping.
 
 #### Classes=>
 
-| Ontology classes    | URI format                                         | Transformation actions |
-|---------------------|----------------------------------------------------|------------------------|
-| s4bldg:Building     | namespace#Building-&lt;MATRICULE8&gt;              |                        |
-| gn:parentADM4       | namespace#RTA-&lt;CFSAUID&gt;                      |                        |
-| geosp:Geometry      | namespace#RTAPolygon-&lt;properties.MATRICULE8&gt; |                        |
-| saref:Measurement   | namespace#Measurement-&lt;MATRICULE8&gt;           |                        |
-| saref:UnitOfMeasure | qudt:M2                                            |                        |
-| saref:Property      | bigg#GrossFloorArea                                |                        |
+| Ontology classes    | URI format                                              | Transformation actions |
+|---------------------|---------------------------------------------------------|------------------------|
+| s4bldg:Building     | namespace#Building-&lt;MATRICULE8&gt;                   |                        |
+| gn:parentADM4       | namespace#RTA-&lt;CFSAUID&gt;                           |                        |
+| geosp:Geometry      | namespace#BuildingPolygon-&lt;properties.MATRICULE8&gt; |                        |
+| saref:Measurement   | namespace#Measurement-&lt;MATRICULE8&gt;                |                        |
+| saref:UnitOfMeasure | qudt:M2                                                 |                        |
+| saref:Property      | bigg#GrossFloorArea                                     |                        |
 
 #### Object Properties=>
 
-| Origin class         | Destination class   | Relation                |
-|----------------------|---------------------|-------------------------|
-| s4bldg:Building      | saref:Measurement   | geosp:hasArea           |
-| s4bldg:Building      | geosp:Geometry      | geosp:hasGeometry       |
-| gn:parentADM4        | s4bldg:Building     | geosp:sfContains        |
-| saref:Measurement    | qudt:M2             | saref:isMeasuredIn      |
-| saref:Measurement    | bigg:GrossFloorArea | saref:relatesToProperty |
+| Origin class      | Destination class   | Relation                |
+|-------------------|---------------------|-------------------------|
+| s4bldg:Building   | saref:Measurement   | geosp:hasArea           |
+| s4bldg:Building   | geosp:Geometry      | geosp:hasGeometry       |
+| gn:parentADM4     | s4bldg:Building     | geosp:sfContains        |
+| saref:Measurement | qudt:M2             | saref:isMeasuredIn      |
+| saref:Measurement | bigg:GrossFloorArea | saref:relatesToProperty |
 
 #### Data properties=>
 
