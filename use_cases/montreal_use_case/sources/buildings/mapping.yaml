@@ -30,7 +30,7 @@ mappings:
       - [bigg:province_id, $(PRUID)]
 
       - [geosp:hasArea, mon:Measurement-$(MATRICULE8)-GrossFloorArea]
-      - [geosp:hasGeometry, mon:RTAPolygon-$(MATRICULE8)]
+      - [geosp:hasGeometry, mon:BuildingPolygon-$(MATRICULE8)]
 
   rta:
     sources:
@@ -43,7 +43,7 @@ mappings:
   buildingsGeojson:
     sources:
       - [ 'data.json~jsonpath', '$.buildings.geojson[*]' ]
-    s: mon:RTAPolygon-$(properties.MATRICULE8)
+    s: mon:buildingPolygon-$(properties.MATRICULE8)
     po:
       - [ a, geosp:Geometry ]
       - [ geosp:asGeoJSON, $(geometry.coordinates) ]
