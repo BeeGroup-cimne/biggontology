@@ -1,0 +1,66 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  cr_bcn: "https://cr_bcn#"
+
+mappings:
+  buildings:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildingsSpaces.point[*][properties]' ]
+    s: cr_bcn:Building-$(building_gml_id)
+    po:
+      - [a, s4bldg:Building]
+      - [s4bldg:hasSpace, cr_bcn:InspireBuildingSpace-$(localId)]
+
+  buildingsSpaces:
+    sources:
+      - ['data.json~jsonpath', '$.buildingsSpaces.point[*][properties]']
+    s: cr_bcn:InspireBuildingSpace-$(localId)
+    po:
+      - [a, bigg:InspireBuildingSpace]
+      - [bigg:cadastralLocalId, $(localId)]
+      - [bigg:numberOfFloorsAboveGround, $(numberOfFloorsAboveGround)]
+      - [bigg:numberOfFloorsBelowGround, $(numberOfFloorsBelowGround)]
+
+      - [geosp:hasArea, cr_bcn:Measurement-$(localId)-BuiltUpLandArea]
+      - [geosp:hasGeometry, cr_bcn:Point-$(localId)]
+      - [geosp:hasGeometry, cr_bcn:Polygon-$(localId)]
+
+
+  buildingSpacePoint:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildingsSpaces.point[*]' ]
+    s: cr_bcn:Point-$(properties.localId)
+    po:
+      - [a, geo:Point]
+      - [geosp:asGeoJSON, $(geometry.coordinates)]
+
+  buildingSpaceGeojson:
+    sources:
+      - ['data.json~jsonpath', '$.buildingsSpaces.geojson[*]']
+    s: cr_bcn:Polygon-$(properties.localId)
+    po:
+      - [a, geosp:Geometry]
+      - [geosp:asGeoJSON, $(geometry.coordinates)]
+
+  measurement:
+    sources:
+      - ['data.json~jsonpath', '$.buildingsSpaces.geojson[*][properties]']
+    s: cr_bcn:Measurement-$(localId)-BuiltUpLandArea
+    po:
+      - [a, saref:Measurement]
+      - [saref:hasValue, $(area)]
+      - [saref:isMeasuredIn, qudt:M2]
+      - [saref:relatesToProperty, bigg:BuiltUpLandArea]
