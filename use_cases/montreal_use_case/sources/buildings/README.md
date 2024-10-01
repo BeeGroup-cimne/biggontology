@@ -126,6 +126,7 @@ The data imported will be stored:
     "TotalFloorArea": null,
     "FloorNu_Calculated": null
   }
+}
 ````
 
 ## Harmonization
