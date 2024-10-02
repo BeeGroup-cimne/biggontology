@@ -219,7 +219,7 @@ The data imported will be stored:
 
 The harmonization of the data will be done with the following mapping:
 
-### Building=>
+### Building [mapping](mapping_building.yaml)=>
 
 #### Classes=>
 
@@ -272,7 +272,7 @@ The harmonization of the data will be done with the following mapping:
 | saref:Measurement | value                   | saref:hasValue           |
 | saref:Measurement | area                    | saref:hasValue           |
 
-### BuildingSpace=>
+### BuildingSpace [mapping](mapping_building_spaces.yaml)=>
 
 #### Classes=>
 
@@ -310,7 +310,7 @@ The harmonization of the data will be done with the following mapping:
 | geosp:Geometry            | geometry.coordinates      | geosp:asGeoJSON                |
 | saref:Measurement         | area                      | saref:hasValue                 |
 
-### Address=>
+### Address [mapping](mapping_address.yaml)=>
 
 #### Classes=>
 

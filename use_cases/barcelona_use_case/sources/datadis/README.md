@@ -1,8 +1,7 @@
 # Datadis consumption
 
 The Datadis consumption dataset includes detailed information on hourly electricity consumption for each postal code.
-The data
-is measured in kilowatt-hours (kWh) and is categorized by postal code, sector, and tariff.
+The data is measured in kilowatt-hours (kWh) and is categorized by postal code, sector, and tariff.
 
 ## Gathering tool
 
