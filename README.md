@@ -173,3 +173,14 @@ manage and forecast resource consumption based on specific territorial character
    ```bash
    git clone https://github.com/BeeGroup-cimne/biggontology.git
 
+## Authors
+- Edgar Martínez-Sarmiento
+- Eloi Gabaldón - egabaldon@cimne.upc.edu
+- Guillaume Picinbono
+- Nicolas Bus 
+- Stoyan Danov 
+- Jose Manuel Broto - jmbroto@cimne.upc.edu
+- Jordi Carbonell - jordi@cimne.upc.edu
+  
+Copyright (c) 2023 Edgar Martínez-Sarmiento, Eloi Gabaldon, Guillaume Picinbono, Nicolas Bus, Stoyan Danov, Jose Manuel Broto, Jordi Carbonell
+
