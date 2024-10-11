@@ -1,0 +1,59 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  mon: "https://montreal#"
+
+mappings:
+
+  buildings:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.geojson[*][properties]']
+    s: mon:Building-$(MATRICULE8)
+    po:
+      - [a, s4bldg:Building]
+      - [bigg:street_name, $(NOM_RUE)]
+      - [bigg:street_number, $(NUM)]
+      - [bigg:name, $(NOM_OFFICI)]
+      - [bigg:province_name, $(PRNAME)]
+      - [bigg:province_id, $(PRUID)]
+
+      - [geosp:hasArea, mon:Measurement-$(MATRICULE8)-GrossFloorArea]
+      - [geosp:hasGeometry, mon:BuildingPolygon-$(MATRICULE8)]
+
+  rta:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mon:RTA-$(CFSAUID)
+    po:
+      - [ a, gn:parentADM4 ]
+      - [ geosp:sfContains, mon:Building-$(MATRICULE8) ]
+
+  buildingsGeojson:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*]' ]
+    s: mon:buildingPolygon-$(properties.MATRICULE8)
+    po:
+      - [ a, geosp:Geometry ]
+      - [ geosp:asGeoJSON, $(geometry.coordinates) ]
+
+  measurementGrossFloorArea:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.geojson[*][properties]']
+    s: mon:Measurement-$(MATRICULE8)-GrossFloorArea
+    po:
+      - [a, saref:Measurement]
+      - [saref:hasValue, $(g_sup_tota)]
+      - [saref:isMeasuredIn, qudt:M2]
+      - [saref:relatesToProperty, bigg:GrossFloorArea]
