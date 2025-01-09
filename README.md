@@ -66,7 +66,14 @@ The BIGG ontology is divided into 5 main components:
   optimise resource usage, manage budgets effectively, and make informed decisions on service contracts and procurement
   strategies.
 
-  ![bigg4kpi](resources/bigg4tariff.png)
+  ![bigg4tariff](resources/bigg4tariff.png)
+
+- **Electric Flow Storage Device**: An electric flow storage device is a device in which electrical energy is stored and
+  from which energy may be progressively released. Therefore, this class defines a battery with an inverter installed in
+  a building or at the district level to provide electricity services to its owners or clients. This Class was developed
+  within the Horizon Europe funded DEDALUS (https://dedalus-horizon.eu/) project.
+
+  ![bigg4electricflowstoragedevice](resources/bigg4electricflowstoragedevice.png)
 
 ## Dictionaries & Taxonomies
 
@@ -174,13 +181,15 @@ manage and forecast resource consumption based on specific territorial character
    git clone https://github.com/BeeGroup-cimne/biggontology.git
 
 ## Authors
+
 - Edgar Martínez-Sarmiento
 - Eloi Gabaldón - egabaldon@cimne.upc.edu
 - Guillaume Picinbono
-- Nicolas Bus 
-- Stoyan Danov 
+- Nicolas Bus
+- Stoyan Danov
 - Jose Manuel Broto - jmbroto@cimne.upc.edu
 - Jordi Carbonell - jordi@cimne.upc.edu
-  
-Copyright (c) 2023 Edgar Martínez-Sarmiento, Eloi Gabaldon, Guillaume Picinbono, Nicolas Bus, Stoyan Danov, Jose Manuel Broto, Jordi Carbonell
+
+Copyright (c) 2023 Edgar Martínez-Sarmiento, Eloi Gabaldon, Guillaume Picinbono, Nicolas Bus, Stoyan Danov, Jose Manuel
+Broto, Jordi Carbonell
 
