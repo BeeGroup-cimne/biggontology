@@ -1,7 +1,7 @@
-# Bigg Ontology
+# BIGG Ontology
 
 The BIGG Ontology is an open-source initiative that establishes a standardised schema
-for describing, characterising, and analysing buildings and urban areas. This ontology supports urban planning, building
+for describing, characterising, and analysing buildings and urban areas. It was mainly developed in the framework of multiple private and public funded projects, some of them are: BIGG (EU-Horizon project), ENTRACK (EU-Horizon project) and Climate Ready Barcelona (ICLEI's Action Fund 2.0 project). This ontology supports urban planning, building
 management, and sustainable development by creating a shared vocabulary for researchers and practitioners. This common
 language facilitates the sharing and integrating information within the urban development domain. The ontology also
 includes a framework for defining measurements and key performance indicators (KPIs) to enable precise evaluation and
