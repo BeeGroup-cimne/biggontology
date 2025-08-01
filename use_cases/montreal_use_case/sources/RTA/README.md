@@ -38,7 +38,7 @@ have its own row key, that will be generated as follows:
 
 ## Harmonization
 
-The harmonization of the data will be done with the following mapping:
+The harmonization of the data will be done with the following [mapping](mapping.yaml):
 
 #### Classes=>
 
