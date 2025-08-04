@@ -8,7 +8,7 @@ includes a framework for defining measurements and key performance indicators (K
 benchmarking of building and urban area performance. This repository documents the ongoing development of the ontology
 and provides essential resources for its application.
 
-![Ontology](resources/ontology.png)
+![Ontology](resources/ontologylinkage.png)
 
 The BIGG ontology uses the Terse RDF Triple Language (Turtle) to represent information. It is built using the Web
 Ontology Language (OWL), which is based on the Resource Description Framework (RDF) XML standard set by the World Wide
@@ -23,7 +23,7 @@ The BIGG ontology is divided into 5 main components:
   urban areas, including their functions, interconnections, and performance. This ensures efficient operation,
   maintenance, and integration of systems, leading to enhanced overall building performance and reliability.
 
-  ![systems](resources/systems.png)
+  ![systems](resources/system.png)
 
 - **Geospatial**: Capture and analyze spatial characteristics and geographic information of buildings and urban areas.
   This supports urban planning, optimal land use, site selection, and environmental impact assessments, thereby
@@ -58,22 +58,7 @@ The BIGG ontology is divided into 5 main components:
   KPIs allow for benchmarking, performance assessment, and identifying areas for improvement, supporting strategies for
   enhanced efficiency and sustainability.
 
-  ![bigg4kpi](resources/bigg4kpi.png)
-
-- **Tariff**: Define and analyse the tariffs and pricing structures related to utilities and services in buildings and
-  urban areas. This includes understanding cost implications for energy, water, waste management, and other services,
-  enabling better financial planning, cost management, and policy development. By analysing tariffs, stakeholders can
-  optimise resource usage, manage budgets effectively, and make informed decisions on service contracts and procurement
-  strategies.
-
-  ![bigg4tariff](resources/bigg4tariff.png)
-
-- **Electric Flow Storage Device**: An electric flow storage device is a device in which electrical energy is stored and
-  from which energy may be progressively released. Therefore, this class defines a battery with an inverter installed in
-  a building or at the district level to provide electricity services to its owners or clients. This Class was developed
-  within the Horizon Europe funded DEDALUS (https://dedalus-horizon.eu/) project.
-
-  ![bigg4electricflowstoragedevice](resources/bigg4electricflowstoragedevice.png)
+  ![bigg4kpi](resources/kpi.png)
 
 ## Dictionaries & Taxonomies
 
