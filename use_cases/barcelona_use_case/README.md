@@ -4,7 +4,7 @@ This repository documents the data ingestion and harmonisation processes used in
 
 The following links provide detailed information about the import tools and pre-processing workflows for each data source used in the project:
 
-![barcelona](resources/barcelona.png)
+![barcelona](../../resources/barcelona.png)
 
 ## Data sources
 
