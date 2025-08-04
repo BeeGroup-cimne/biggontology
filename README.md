@@ -146,14 +146,13 @@ The principal challenge addressed in this case involves integrating initially di
 
 ## Authors
 
+- Jose Manuel Broto - jmbroto@cimne.upc.edu
 - Edgar Martínez-Sarmiento
 - Eloi Gabaldón - egabaldon@cimne.upc.edu
 - Guillaume Picinbono
 - Nicolas Bus
 - Stoyan Danov
-- Jose Manuel Broto - jmbroto@cimne.upc.edu
 - Jordi Carbonell - jordi@cimne.upc.edu
 
-Copyright (c) 2023 Edgar Martínez-Sarmiento, Eloi Gabaldon, Guillaume Picinbono, Nicolas Bus, Stoyan Danov, Jose Manuel
-Broto, Jordi Carbonell
+Copyright (c) 2025 Jose Manuel Broto, Edgar Martínez-Sarmiento, Eloi Gabaldon, Guillaume Picinbono, Nicolas Bus, Stoyan Danov, Jordi Carbonell
 
