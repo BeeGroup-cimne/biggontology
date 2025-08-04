@@ -1,24 +1,27 @@
-# Barcelona Use Case
+# Climate Ready Barcelona: Data ingestion and harmonisation to BIGG Ontology
 
-![barcelona](../../resources/barcelona.png)
+This repository documents the data ingestion and harmonisation processes used in the Climate Ready Barcelona project. All datasets have been standardised and aligned with the BIGG Ontology, ensuring semantic interoperability and facilitating advanced queries, analysis, and integration across spatial and temporal dimensions.
 
-## Data sources index
+The following links provide detailed information about the import tools and pre-processing workflows for each data source used in the project:
+
+![barcelona](resources/barcelona.png)
+
+## Data sources
 
 The following links will provide information of each data source import tool:
 
-1. [AEB Consumptions](sources/AEB_consumptions/README.md)
-2. [AMB Consumptions](sources/AMB_consumptions/README.md)
-3. [CensusTracts](sources/census_tracts/README.md)
-4. [Datadis](sources/datadis/README.md)
-5. [Districts](sources/districts/README.md)
-6. [Elevation Model Global](sources/elevation_model_global/README.md)
-7. [Endesa](sources/endesa/README.md)
-8. [HUTS](sources/HUTS/README.md)
-9. [Inspire (Cadaster data)](sources/Inspire/README.md)
-10. [Municipalities](sources/municipalities/README.md)
-11. [NDVI Vegetation Index](sources/NDVI/README.md)
-12. [Nedgia](sources/Nedgia/README.md)
-13. [Neighbourhoods](sources/Neighbourhoods/README.md)
-14. [Postal Codes](sources/postal_codes/README.md)
-15. [UrbClim HDD/CDD](sources/urbclim_hdd_cdd/README.md)
-16. [Weather UrbClim](sources/urbclim/README.md)
+1. [Yearly gas and electricity consumption at building level from Metropolitan Area of Barcelona](sources/AMB_consumptions/README.md)
+2. [Hourly electricity consumption at postal code level](sources/Datadis/README.md)
+3. [Monthly electricity consumption at building level from ENDESA](sources/Endesa/README.md)
+4. [Gas consumption at building level from NEDGIA](sources/Nedgia/README.md)
+5. [Administrative layer: census tracts](sources/CensusTracts/README.md)
+6. [Administrative layer: districts](sources/Districts/README.md)
+7. [Administrative layer: postal codes](sources/PostalCodes/README.md)
+8. [Administrative layer: neighbourhoods](sources/Neighbourhoods/README.md)
+9. [Administrative layer: municipalities](sources/Municipalities/README.md)
+10. [Digital Elevation Model](sources/EMG/README.md)
+11. [Turistic establishments in Catalonia](sources/HUTS/README.md)
+12. [Cadaster harmonised to INSPIRE](sources/Inspire/README.md)
+13. [Normalized Difference Vegetation Index](sources/NDVI/README.md)
+14. [Heating and cooling degree days from URBCLIM](sources/UrbClim/README.md)
+15. [Hourly air temperature and relative humidity from URBCLIM](sources/Weather/README.md)
