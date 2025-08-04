@@ -1,0 +1,100 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  cr_bcn: "https://cr_bcn#"
+
+mappings:
+  buildings:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.point[*][properties]']
+    s: cr_bcn:Building-$(building_gml_id)
+    po:
+      - [a, s4bldg:Building]
+      - [bigg:startState, $(beginLifespanVersion)]
+      - [bigg:state, $(conditionOfConstruction)]
+      - [bigg:startConstruction, $(beginning)]
+      - [bigg:endConstruction, $(end)]
+      - [bigg:endState, $(endLifespanVersion)]
+      - [bigg:cadasterDetailedUrl, $(informationSystem)]
+      - [bigg:cadastralId, $(reference)]
+      - [bigg:mainUse, $(currentUse)]
+      - [bigg:buildingUnits, $(numberOfBuildingUnits)]
+      - [bigg:dwellings, $(numberOfDwellings)]
+
+      - [geosp:hasArea, cr_bcn:Measurement-$(building_gml_id)-$(officialAreaReference)]
+      - [geosp:hasArea, cr_bcn:Measurement-$(building_gml_id)-BuiltUpLandArea]
+      - [geosp:hasGeometry, cr_bcn:Point-$(building_gml_id)]
+      - [geosp:hasGeometry, cr_bcn:Polygon-$(building_gml_id)]
+
+  postalCodes:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.point[*][properties]' ]
+    s: cr_bcn:PostalCodes-$(CODPOS)
+    po:
+      - [ a, gn:PostalCode ]
+      - [ geosp:sfContains, cr_bcn:Building-$(building_gml_id) ]
+
+  censusTract:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.point[*][properties]' ]
+    s: cr_bcn:CensusTract-$(MUNDISSEC)
+    po:
+      - [ a, gn:parentADM5 ]
+      - [ geosp:sfContains, cr_bcn:Building-$(building_gml_id) ]
+
+  Neighbourhood:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.point[*][properties]' ]
+    s: cr_bcn:Neighbourhood-$(codi_barri)
+    po:
+      - [ a, s4city:Neighbourhood ]
+      - [ geosp:sfContains, cr_bcn:Building-$(building_gml_id) ]
+
+  buildingsPoint:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.point[*]' ]
+    s: cr_bcn:Point-$(properties.building_gml_id)
+    po:
+      - [a, geo:Point]
+      - [geosp:asGeoJSON, $(geometry.coordinates)]
+
+
+  buildingsGeojson:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.geojson[*]']
+    s: cr_bcn:Polygon-$(properties.building_gml_id)
+    po:
+      - [ a, geosp:Geometry ]
+      - [ geosp:asGeoJSON, $(geometry.coordinates) ]
+
+  measurementGrossFloorArea:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.point[*][properties]']
+    s: cr_bcn:Measurement-$(building_gml_id)-$(officialAreaReference)
+    po:
+      - [a, saref:Measurement]
+      - [saref:hasValue, $(value)]
+      - [saref:isMeasuredIn, qudt:M2]
+      - [saref:relatesToProperty, bigg:$(officialAreaReference)]
+
+  measurementBuiltUpLandArea:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.point[*][properties]']
+    s: cr_bcn:Measurement-$(building_gml_id)-BuiltUpLandArea
+    po:
+      - [a, saref:Measurement]
+      - [saref:hasValue, $(area)]
+      - [saref:isMeasuredIn, qudt:M2]
+      - [saref:relatesToProperty, bigg:BuiltUpLandArea]
