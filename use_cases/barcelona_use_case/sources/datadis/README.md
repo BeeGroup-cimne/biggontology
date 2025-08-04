@@ -1,7 +1,7 @@
 # Datadis consumption
 
-The Datadis consumption dataset includes detailed information on hourly electricity consumption for each postal code. The data
-is measured in kilowatt-hours (kWh) and is categorized by postal code, sector, and tariff.
+The Datadis consumption dataset includes detailed information on hourly electricity consumption for each postal code.
+The data is measured in kilowatt-hours (kWh) and is categorized by postal code, sector, and tariff.
 
 ## Gathering tool
 
@@ -26,17 +26,58 @@ information, each having its own row key.
 
 ````json
 {
+  "dataDay": "1",
+  "dataMonth": "7",
+  "dataYear": "2023",
+  "community": "Catalu\\u00f1a",
+  "province": "Barcelona",
+  "municipality": "BARCELONA",
+  "postalCode": "08015",
+  "fare": ">= 1 kV Y < 30 kV",
+  "timeDiscrimination": "GENERAL ALTA TENSI\\u00d3N",
+  "measurePointType": null,
+  "sumEnergy": "98473",
+  "sumContracts": "11",
+  "tension": "E2",
+  "economicSector": "SERVICIOS",
+  "distributor": null,
+  "mi1": "4317",
+  "mi2": "3912",
+  "mi3": "2850",
+  "mi4": "1544",
+  "mi5": "1950",
+  "mi6": "3462",
+  "mi7": "3627",
+  "mi8": "4047",
+  "mi9": "4267",
+  "mi10": "4510",
+  "mi11": "4404",
+  "mi12": "4426",
+  "mi13": "4682",
+  "mi14": "4698",
+  "mi15": "4812",
+  "mi16": "4884",
+  "mi17": "4777",
+  "mi18": "4936",
+  "mi19": "4770",
+  "mi20": "4911",
+  "mi21": "5004",
+  "mi22": "4166",
+  "mi23": "3788",
+  "mi24": "3729",
+  "mi25": "0"
 }
 ````
 
 ## Harmonization
 
-The harmonization of the data will be done with the following [mapping](mapping.yaml):
+The harmonization of the data will be done with the following [mapping](harmonizer/mapping.yaml):
 
 #### Classes=>
 
 | Ontology classes       | URI format                                                                           | Transformation actions |
 |------------------------|--------------------------------------------------------------------------------------|------------------------|
+| gn:PostalCode          | namespace#PostalCodes-&lt;postalCode&gt;                                             |                        |
 | saref:Measurement      | namespace#Measurement-&lt;electricityDeviceId&gt;                                    |                        |
 | bigg:Tariff            | namespaceTariff-&lt;tariff&gt;                                                       |                        |
 | bigg:ContractedTariff  | namespace#ContractedTariff-&lt;tariff&gt                                             |                        |
@@ -63,6 +104,3 @@ The harmonization of the data will be done with the following [mapping](mapping.
 |------------------|--------------|------------------|
 | bigg:Tariff      | tariff       | bigg:tariffName  |
 | geosp:Geometry   | coordinates  | geosp:asGeoJSON  |
-
-
-
