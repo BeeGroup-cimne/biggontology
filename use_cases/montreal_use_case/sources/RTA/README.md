@@ -1,17 +1,16 @@
 # RTA
-
-The RTA file contains geometry information of barcelona city.
+The RTA file contains geometry information of Montreal island.
 
 ## Gathering tool
 
-This data source comes in the format of an GPKG file.
+This data source comes in the format of an GEOJSON file.
 
 #### RUN import application
 
 To run the import application, execute the python script with the following parameters:
 
 ```bash
-python3 -m gather -so postal_codes_bcn -f <file> -n <namespace> -u <user_importing> -tz <file_timezone> -st <storage>
+python3 -m gather -so rta -f <file> -n <namespace> -u <user_importing> -tz <file_timezone> -st <storage>
 ```
 
 ## Raw Data Format
@@ -38,7 +37,7 @@ have its own row key, that will be generated as follows:
 
 ## Harmonization
 
-The harmonization of the data will be done with the following [mapping](mapping.yaml):
+The harmonization of the data will be done with the following mapping:
 
 #### Classes=>
 
@@ -59,6 +58,3 @@ The harmonization of the data will be done with the following [mapping](mapping.
 |------------------|----------------------|------------------|
 | geosp:Geometry   | geometry.coordinates | geosp:asGeoJSON  |
 | gn:parentADM4    | PRNAME               | gn:officialName  |
-
-
-
