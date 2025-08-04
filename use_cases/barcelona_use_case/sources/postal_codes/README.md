@@ -30,13 +30,25 @@ have its own row key, that will be generated as follows:
 
 ## Harmonization
 
-The harmonization of the data will be done with the following mapping:
+The harmonization of the data will be done with the following [mapping](mapping.yaml):
 
-#### Postal Codes=>
+#### Classes=>
 
-| Origin | Harmonization              |
-|--------|----------------------------|
-| CODPOS | gn:PostalCode:postalCodeId | 
+| Ontology classes | URI format                                      | Transformation actions |
+|------------------|-------------------------------------------------|------------------------|
+| gn:PostalCode    | namespace#PostalCodes-&lt;properties.CODPOS&gt; |                        |
+| geosp:Geometry   | namespace#Polygon-&lt;properties.CODPOS&gt;     |                        |
 
+#### Object Properties=>
 
+| Origin class  | Destination class | Relation          |
+|---------------|-------------------|-------------------|
+| gn:PostalCode | geosp:Geometry    | geosp:hasGeometry |
+
+#### Data properties=>
+
+| Ontology classes | Origin field         | Harmonised field  |
+|------------------|----------------------|-------------------|
+| gn:PostalCode    | properties.CODPOS    | bigg:postalCodeId |
+| geosp:Geometry   | geometry.coordinates | geosp:asGeoJSON   |
 
