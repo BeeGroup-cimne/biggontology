@@ -4,7 +4,7 @@ prefixes:
   schema: "https://schema.org/"
   geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
   geosp: "http://www.opengis.net/ont/geosparql#"
-  gn: "http://www.geonames.org/ontology#"
+  gn: "https://www.geonames.org/ontology#"
   saref: "https://saref.etsi.org/core/"
   s4agri: "https://saref.etsi.org/saref4agri/"
   s4syst: "https://saref.etsi.org/saref4syst/"
@@ -12,7 +12,7 @@ prefixes:
   s4bldg: "https://saref.etsi.org/saref4bldg/"
   ssn: "http://www.w3.org/ns/ssn/"
   time: "http://www.w3.org/2006/time#"
-  qudt: "https://qudt.org/vocab/unit/"
+  qudt: "http://qudt.org/vocab/unit/"
   mon: "https://montreal#"
 
 mappings:
@@ -43,7 +43,7 @@ mappings:
   buildingsGeojson:
     sources:
       - [ 'data.json~jsonpath', '$.buildings.geojson[*]' ]
-    s: mon:buildingPolygon-$(properties.MATRICULE8)
+    s: mon:BuildingPolygon-$(properties.MATRICULE8)
     po:
       - [ a, geosp:Geometry ]
       - [ geosp:asGeoJSON, $(geometry.coordinates) ]

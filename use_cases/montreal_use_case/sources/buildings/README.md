@@ -126,9 +126,10 @@ The data imported will be stored:
     "TotalFloorArea": null,
     "FloorNu_Calculated": null
   }
+}
 ````
 
-## Harmonization
+## Building Harmonization
 
 The harmonization of the data will be done with the following [mapping](mapping.yaml):
 
@@ -159,3 +160,58 @@ The harmonization of the data will be done with the following [mapping](mapping.
 |-------------------|----------------------|------------------|
 | geosp:Geometry    | geometry.coordinates | geosp:asGeoJSON  |
 | saref:Measurement | g_sup_tota           | saref:hasValue   |
+
+## Building Physics Harmonization
+
+The harmonization of the data will be done with the following [mapping](mapping_building_physics.yaml):
+
+#### Classes=>
+
+| Ontology classes     | URI format                                               | Transformation actions |
+|----------------------|----------------------------------------------------------|------------------------|
+| s4bldg:Building      | namespace#Building-&lt;MATRICULE8&gt;                    |                        |
+| building:Roof        | namespace#Element-&lt;MATRICULE8&gt;-Roof                |                        |
+| mat:MaterialLayerSet | namespace#MaterialLayerSet-&lt;MATRICULE8&gt;-Roof       |                        |
+| mat:MaterialLayer    | namespace#MaterialLayer-&lt;MATRICULE8&gt;-RoofPanel1    |                        |
+| mat:MaterialLayer    | namespace#MaterialLayer-&lt;MATRICULE8&gt;-RoofIsolation |                        |
+| mat:MaterialLayer    | namespace#MaterialLayer-&lt;MATRICULE8&gt;-RoofPanel2    |                        |
+| mat:Material         | namespace#Material-Steel                                 |                        |
+| mat:Material         | namespace#Material-Polyurethane                          |                        |
+
+#### Object Properties=>
+
+| Origin class         | Destination class         | Relation                |
+|----------------------|---------------------------|-------------------------|
+| s4bldg:Building      | building:Roof             | bot:hasElement          |
+| building:Roof        | mat:MaterialLayerSet      | mat:hasMaterialLayerSet |
+| mat:MaterialLayerSet | mat:MaterialLayer         | mat:hasMaterialLayer    |
+| mat:MaterialLayerSet | mat:MaterialLayer         | mat:hasMaterialLayer    |
+| mat:MaterialLayerSet | mat:MaterialLayer         | mat:hasMaterialLayer    |
+| mat:MaterialLayer    | mat:Material-Steel        | mat:hasMaterial         |
+| mat:MaterialLayer    | mat:Material-Polyurethane | mat:hasMaterial         |
+| mat:MaterialLayer    | mat:Material-Steel        | mat:hasMaterial         |
+
+#### Data properties=>
+
+| Ontology classes     | Origin field       | Harmonised field |
+|----------------------|--------------------|------------------|
+| building:Roof        | Roof sandwich      | mat:name         |
+| building:Roof        | description        | mat:description  |
+| mat:MaterialLayerSet | Roof sandwich      | mat:name         |
+| mat:MaterialLayerSet | description        | mat:description  |
+| mat:MaterialLayer    | Steel panel        | mat:name         |
+| mat:MaterialLayer    | 0.001              | mat:thickness    |
+| mat:MaterialLayer    | description        | mat:description  |
+| mat:MaterialLayer    | 0                  | mat:position     |
+| mat:MaterialLayer    | Polyurethane layer | mat:name         |
+| mat:MaterialLayer    | 0.01               | mat:thickness    |
+| mat:MaterialLayer    | description        | mat:description  |
+| mat:MaterialLayer    | 1                  | mat:position     |
+| mat:MaterialLayer    | Steel panel        | mat:name         |
+| mat:MaterialLayer    | 0.001              | mat:thickness    |
+| mat:MaterialLayer    | description        | mat:description  |
+| mat:MaterialLayer    | 2                  | mat:position     |
+| mat:Material         | Steel              | mat:name         |
+| mat:Material         | IFC Id             | mat:description  |
+| mat:Material         | Polyurethane       | mat:name         |
+| mat:Material         | IFC Id             | mat:description  |

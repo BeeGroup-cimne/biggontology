@@ -1,0 +1,111 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "https://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "http://qudt.org/vocab/unit/"
+  building: "http://bimerr.iot.linkeddata.es/def/building#"
+  bot: "https://w3id.org/bot#"
+  mat: "http://bimerr.iot.linkeddata.es/def/material-properties#"
+  mon: "https://montreal#"
+
+mappings:
+
+  buildings:
+    sources:
+      - ['data.json~jsonpath', '$.buildings.geojson[*][properties]']
+    s: mon:Building-$(MATRICULE8)
+    po:
+      - [a, s4bldg:Building]
+
+      - [bot:hasElement, mon:Element-$(MATRICULE8)-Roof]
+
+  elements:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mon:Element-$(MATRICULE8)-Roof
+    po:
+      - [ a, building:Roof ]
+      - [mat:name, Roof sandwich]
+      - [mat:description, The thermal insulation of the polyurethane sandwich panel.]
+
+      - [ mat:hasMaterialLayerSet, mon:MaterialLayerSet-$(MATRICULE8)-Roof ]
+
+  MaterialLayerSet:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mon:MaterialLayerSet-$(MATRICULE8)-Roof
+    po:
+      - [ a, mat:MaterialLayerSet ]
+      - [mat:name, Roof sandwich]
+      - [mat:description, The thermal insulation of the polyurethane sandwich panel.]
+
+      - [ mat:hasMaterialLayer, mat:MaterialLayer-$(MATRICULE8)-RoofPanel1]
+      - [ mat:hasMaterialLayer, mat:MaterialLayer-$(MATRICULE8)-RoofIsolation]
+      - [ mat:hasMaterialLayer, mat:MaterialLayer-$(MATRICULE8)-RoofPanel2]
+
+  MaterialLayer1:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mat:MaterialLayer-$(MATRICULE8)-RoofPanel1
+    po:
+      - [ a, mat:MaterialLayer ]
+      - [ mat:name, Steel panel]
+      - [ mat:thickness, "0.001"]
+      - [ mat:description, Exterior steel panel]
+      - [ mat:position, "0"]
+
+      - [ mat:hasMaterial, mat:Material-Steel ]
+
+  MaterialLayer2:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mat:MaterialLayer-$(MATRICULE8)-RoofIsolation
+    po:
+      - [ a, mat:MaterialLayer ]
+      - [ mat:name, Polyurethane layer ]
+      - [ mat:thickness, "0.01"]
+      - [ mat:description, Interior insulation ]
+      - [ mat:position, "1" ]
+
+      - [ mat:hasMaterial, mat:Material-Polyurethane ]
+
+  MaterialLayer3:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mat:MaterialLayer-$(MATRICULE8)-RoofPanel2
+    po:
+      - [ a, mat:MaterialLayer ]
+      - [ mat:name, Steel panel ]
+      - [ mat:thickness, "0.001"]
+      - [ mat:description, Exterior steel panel ]
+      - [ mat:position, "2" ]
+
+      - [ mat:hasMaterial, mat:Material-Steel ]
+
+  MaterialSteel:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mat:Material-Steel
+    po:
+      - [ a, mat:Material ]
+      - [ mat:name, Steel ]
+      - [ mat:description, "ifc id"]
+
+  MaterialPolyurethane:
+    sources:
+      - [ 'data.json~jsonpath', '$.buildings.geojson[*][properties]' ]
+    s: mat:Material-Polyurethane
+    po:
+      - [ a, mat:Material ]
+      - [ mat:name, Polyurethane ]
+      - [ mat:description, "ifc id" ]
