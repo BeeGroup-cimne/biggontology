@@ -23,5 +23,5 @@ The following links will provide information of each data source import tool:
 11. [Turistic establishments in Catalonia](sources/HUTS/README.md)
 12. [Cadaster harmonised to INSPIRE](sources/Inspire/README.md)
 13. [Normalized Difference Vegetation Index](sources/NDVI/README.md)
-14. [Heating and cooling degree days from URBCLIM](sources/UrbClim/README.md)
+14. [Heating and cooling degree days from URBCLIM](sources/urbclim/README.md)
 
