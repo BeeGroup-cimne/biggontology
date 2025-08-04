@@ -76,5 +76,3 @@ The harmonization of the data will be done with the following [mapping](mapping.
 |------------------|----------------|--------------------|
 | gn:parentADM5    | SECCIO: String | bigg:censusTractId |
 | geosp:Geometry   | coordinates    | geosp:asGeoJSON    |
-
-
