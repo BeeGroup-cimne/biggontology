@@ -23,7 +23,7 @@ The BIGG ontology is divided into 5 main components:
   urban areas, including their functions, interconnections, and performance. This ensures efficient operation,
   maintenance, and integration of systems, leading to enhanced overall building performance and reliability.
 
-  <p align="center"><img src="resources/system.png" width="70%"></p>
+  <p align="center"><img src="resources/system.png" width="65%"></p>
 
 - **Geospatial**: Capture and analyze spatial characteristics and geographic information of buildings and urban areas.
   This supports urban planning, optimal land use, site selection, and environmental impact assessments, thereby
@@ -37,20 +37,20 @@ The BIGG ontology is divided into 5 main components:
   data capture across different environments, facilitating reliable monitoring, data collection, analysis, and informed
   decision-making.
 
-  <p align="center"><img src="resources/measurement.png" width="70%"></p>
+  <p align="center"><img src="resources/measurement.png" width="65%"></p>
 
 - **Agents**: Identify and categorize the various stakeholders and entities involved in the lifecycle of buildings and
   urban areas. This promotes effective coordination, compliance with regulations, and collaboration among stakeholders,
   leading to more efficient and cohesive management of urban environments.
 
-  <p align="center"><img src="resources/agent.png" width="50%"></p>
+  <p align="center"><img src="resources/agent.png" width="45%"></p>
 
 - **Temporal**: Address the timing of events, lifecycle phases of systems and components, and historical data related to
   buildings and urban areas. This enables time-based analysis and planning, prediction of future needs, scheduling of
   maintenance activities, and evaluation of long-term trends, ensuring proactive management and sustainability of urban
   assets.
 
-  <p align="center"><img src="resources/temporal.png" width="50%"></p>
+  <p align="center"><img src="resources/temporal.png" width="45%"></p>
 
 ## Extensions
 
