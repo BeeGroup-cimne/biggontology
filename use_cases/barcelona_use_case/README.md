@@ -11,7 +11,7 @@ The following links provide detailed information about the import tools and pre-
 The following links will provide information of each data source import tool:
 
 1. [Yearly gas and electricity consumption at building level from Metropolitan Area of Barcelona](sources/AMB_consumptions/README.md)
-2. [Hourly electricity consumption at postal code level](sources/Datadis/README.md)
+2. [Hourly electricity consumption at postal code level](sources/datadis/README.md)
 3. [Monthly electricity consumption at building level from ENDESA](sources/Endesa/README.md)
 4. [Gas consumption at building level from NEDGIA](sources/Nedgia/README.md)
 5. [Administrative layer: census tracts](sources/CensusTracts/README.md)
