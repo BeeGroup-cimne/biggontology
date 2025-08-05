@@ -104,6 +104,3 @@ The harmonization of the data will be done with the following [mapping](mapping.
 |------------------|--------------|------------------|
 | bigg:Tariff      | tariff       | bigg:tariffName  |
 | geosp:Geometry   | coordinates  | geosp:asGeoJSON  |
-
-
-

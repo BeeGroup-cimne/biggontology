@@ -1,0 +1,38 @@
+# Gas consumption description
+The Nedgia consumption contains the gas consumption for each Address(postal code, street and number).
+
+## Gathering tool
+This data source comes in the format of an XLSX file where there are columns that contains consumptions for address.
+
+#### RUN import application
+To run the import application, execute the python script with the following parameters:
+
+```bash
+python3 -m gather -so nedgia -f <file> -n <namespace> -u <user_importing> -tz <file_timezone> -st <storage>
+```
+
+## Raw Data Format
+The data imported will be stored in the Hbase table, each endpoint that provides a different kind of information will have its own  row key, that will be generated as follows:
+
+#### Gas data
+````json
+{
+ "cp": 8037,
+ "municipio": "BARCELONA",
+ "direccion": "MALLORCA0277",
+ "consum_acum_2023": 30477.0,
+ "N\\u00fam. CUPS": 9
+}
+````
+
+## Harmonization
+
+The harmonization of the data will be done with the following [mapping](mapping.yaml):
+
+#### Building=>
+| Origin | Harmonization |
+|--------|---------------|
+ |        |               | 
+
+
+

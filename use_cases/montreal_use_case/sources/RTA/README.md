@@ -58,6 +58,3 @@ The harmonization of the data will be done with the following mapping:
 |------------------|----------------------|------------------|
 | geosp:Geometry   | geometry.coordinates | geosp:asGeoJSON  |
 | gn:parentADM4    | PRNAME               | gn:officialName  |
-
-
-
