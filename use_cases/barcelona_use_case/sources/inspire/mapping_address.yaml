@@ -1,0 +1,49 @@
+prefixes:
+  bigg: "http://bigg-project.eu/ld/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "https://schema.org/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  geosp: "http://www.opengis.net/ont/geosparql#"
+  gn: "http://www.geonames.org/ontology#"
+  saref: "https://saref.etsi.org/core/"
+  s4agri: "https://saref.etsi.org/saref4agri/"
+  s4syst: "https://saref.etsi.org/saref4syst/"
+  s4city: "https://saref.etsi.org/saref4city/"
+  s4bldg: "https://saref.etsi.org/saref4bldg/"
+  ssn: "http://www.w3.org/ns/ssn/"
+  time: "http://www.w3.org/2006/time#"
+  qudt: "https://qudt.org/vocab/unit/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cr_bcn: "https://cr_bcn#"
+
+mappings:
+  buildings:
+    sources:
+      - ['data.json~jsonpath', '$.address.point[*][properties]']
+    s: cr_bcn:Building-$(building_gml_id)
+    po:
+      - [a, s4bldg:Building]
+
+      - [vcard:hasAddress, cr_bcn:Address-$(building_gml_id)]
+
+  address:
+    sources:
+      - [ 'data.json~jsonpath', '$.address.point[*][properties]' ]
+    s: cr_bcn:Address-$(building_gml_id)
+    po:
+      - [ a, vcard:Address ]
+      - [ bigg:addressId, $(building_gml_id) ]
+      - [ bigg:specification, $(specification) ]
+      - [ bigg:streetNumber, $(designator) ]
+      - [ bigg:streetName, $(street_name) ]
+      - [ bigg:startState, $(beginLifespanVersion) ]
+
+      - [ vcard:hasGeo, cr_bcn:Point-$(localId) ]
+
+  addressPoint:
+    sources:
+      - [ 'data.json~jsonpath', '$.address.point[*]' ]
+    s: cr_bcn:Point-$(properties.localId)
+    po:
+      - [a, geo:Point]
+      - [geosp:asGeoJSON, $(geometry.coordinates)]
