@@ -18,7 +18,7 @@ The following links will provide information of each data source import tool:
 6. [Administrative layer: districts](sources/Districts/README.md)
 7. [Administrative layer: postal codes](sources/postal_codes/README.md)
 8. [Administrative layer: neighbourhoods](sources/neighbourhoods/README.md)
-9. [Administrative layer: municipalities](sources/Municipalities/README.md)
+9. [Administrative layer: municipalities](sources/municipalities/README.md)
 10. [Digital Elevation Model](sources/EMG/README.md)
 11. [Turistic establishments in Catalonia](sources/HUTS/README.md)
 12. [Cadaster harmonised to INSPIRE](sources/Inspire/README.md)
