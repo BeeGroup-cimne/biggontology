@@ -16,50 +16,50 @@ prefixes:
   cr_bcn: "https://cr_bcn#"
 
 mappings:
-#  buildings:
-#    sources:
-#      - [ 'data.json~jsonpath', '$.ndvi[*]' ]
-#    s: cr_bcn:Building-$(reference)
-#    po:
-#      - [ a, s4bldg:Building ]
-#
-#  deployment:
-#    sources:
-#      - [ 'data.json~jsonpath', '$.ndvi[*]' ]
-#    s: cr_bcn:Deployment-$(reference)
-#    po:
-#      - [ a, s4agri:Deployment ]
-#      - [ s4agri:isDeployedAtSpace, cr_bcn:Building-$(reference) ]
-#      - [ ssn:hasDeployment, cr_bcn:System-NDVI-$(reference) ]
-#
-#  system:
-#    sources:
-#      - [ 'data.json~jsonpath', '$.ndvi[*]' ]
-#    s: cr_bcn:System-NDVI-$(reference)
-#    po:
-#      - [ a, s4syst:System ]
-#      - [ a, bigg:NdviSystem ]
-#      - [ s4syst:hasSubSystem, cr_bcn:Device-NDVI-$(reference) ]
-#
-#  device:
-#    sources:
-#      - [ 'data.json~jsonpath', '$.ndvi[*]' ]
-#    s: cr_bcn:Device-NDVI-$(reference)
-#    po:
-#      - [a, saref:Device]
-#      - [a, bigg:NdviDevice]
-#      - [ saref:makesMeasurement, cr_bcn:Measurement-$(ndviId) ]
-#      - [ saref:measuresProperty, bigg:Ndvi ]
-#
-#  measurement:
-#    sources:
-#      - [ 'data.json~jsonpath', '$.ndvi[*]' ]
-#    s: cr_bcn:Measurement-$(ndviId)
-#    po:
-#      - [ a, saref:Measurement ]
-#      - [ bigg:hash, $(ndviId) ]
-#      - [ saref:relatesToProperty, bigg:Ndvi ]
-#      - [ saref:isMeasuredIn, qudt:PERCENT]
+  buildings:
+    sources:
+      - [ 'data.json~jsonpath', '$.gas[*]' ]
+    s: cr_bcn:Building-$(reference)
+    po:
+      - [ a, s4bldg:Building ]
+
+  deployment:
+    sources:
+      - [ 'data.json~jsonpath', '$.gas[*]' ]
+    s: cr_bcn:Deployment-$(reference)
+    po:
+      - [ a, s4agri:Deployment ]
+      - [ s4agri:isDeployedAtSpace, cr_bcn:Building-$(reference) ]
+      - [ ssn:hasDeployment, cr_bcn:System-Gas-$(reference) ]
+
+  system:
+    sources:
+      - [ 'data.json~jsonpath', '$.gas[*]' ]
+    s: cr_bcn:System-Gas-$(reference)
+    po:
+      - [ a, s4syst:System ]
+      - [ a, bigg:GasSystem ]
+      - [ s4syst:hasSubSystem, cr_bcn:Device-Gas-$(reference) ]
+
+  device:
+    sources:
+      - [ 'data.json~jsonpath', '$.gas[*]' ]
+    s: cr_bcn:Device-Gas-$(reference)
+    po:
+      - [a, saref:Device]
+      - [a, bigg:GasDevice]
+      - [ saref:makesMeasurement, cr_bcn:Measurement-$(gasId) ]
+      - [ saref:measuresProperty, bigg:EnergyConsumptionGas ]
+
+  measurement:
+    sources:
+      - [ 'data.json~jsonpath', '$.gas[*]' ]
+    s: cr_bcn:Measurement-$(gasId)
+    po:
+      - [ a, saref:Measurement ]
+      - [ bigg:hash, $(gasId) ]
+      - [ saref:relatesToProperty, bigg:EnergyConsumptionGas ]
+      - [ saref:isMeasuredIn, qudt:M3]
 
 
 
