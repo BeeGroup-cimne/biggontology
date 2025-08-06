@@ -107,6 +107,10 @@ The repository is organized as follows:
 
 - `ontology/`
     - `ontology.ttl`: Main ontology file in Turtle format.
+    - `geonames.ttl`: Geonames ontology file in Turtle format.
+    - `material.ttl`: Materials ontology file in Turtle format.
+    - `Building.ttl`: Building ontology file in Turtle format.
+    - `SAREF4BLDGAlignment.ttl`: Alignment module between saref4bldg and bot ontology in Turtle format.
 - `extensions/`
     - `bigg4tariff.ttl`: Bigg ontology extension for Tariff in Turtle format.
     - `bigg4kpi.ttl`: Bigg ontology extension for energy kpi in Turtle format.
