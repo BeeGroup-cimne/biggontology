@@ -15,7 +15,7 @@ The following links will provide information of each data source import tool:
 3. [Monthly electricity consumption at building level from ENDESA](sources/Endesa/README.md)
 4. [Gas consumption at building level from NEDGIA](sources/nedgia/README.md)
 5. [Administrative layer: census tracts](sources/census_tracts/README.md)
-6. [Administrative layer: districts](sources/Districts/README.md)
+6. [Administrative layer: districts](sources/districts/README.md)
 7. [Administrative layer: postal codes](sources/postal_codes/README.md)
 8. [Administrative layer: neighbourhoods](sources/neighbourhoods/README.md)
 9. [Administrative layer: municipalities](sources/municipalities/README.md)
